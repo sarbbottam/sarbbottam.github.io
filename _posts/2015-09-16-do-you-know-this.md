@@ -6,7 +6,7 @@ categories: oops
 ---
 
 The value of `this` in ECMAScript refers to the execution context of the function.
-In ECMAScript there are three execution context; namely global, function and evaluation. 
+In ECMAScript there are three execution context; namely global, function and evaluation.
 Following example will help to comprehend the concept better.
 
 ## Global context:
@@ -19,13 +19,13 @@ console.log(this) // Window
 
 ## Function context:
 
-In ECMAScript a function can be invoked in five different way: 
+In ECMAScript a function can be invoked in five different way:
 
- * method invocation 
+ * method invocation
  * function invocation
- * constructor invocation 
+ * constructor invocation
  * apply invocation
- * call invocation. 
+ * call invocation.
 
 The value of this within the function context depends on how the function has been invoked.
 
@@ -54,8 +54,8 @@ console.log(foo === foo.bar()); // true; 'this' returned by bar is nothing but f
 
 ### Function invocation:
 
-In function invocation pattern this refers to the window object. 
-In the broader perspective even function invocation pattern is nothing but method invocation pattern. 
+In function invocation pattern this refers to the window object.
+In the broader perspective even function invocation pattern is nothing but method invocation pattern.
 The context of the function is window. Lets consider we have a named function `baz` as below:
 
 ```js
@@ -75,7 +75,7 @@ However `baz` can also be invoked as:
 window.baz(); // Window; as stated in method invocation pattern
 ```
 
-All the global (variables, objects, functions) are associated with window and as per the specification, when referring a global the window reference can be omitted. 
+All the global (variables, objects, functions) are associated with window and as per the specification, when referring a global the window reference can be omitted.
 Thus window refers to the global context in function invocation pattern.
 
 ### Constructor Invocation:
@@ -104,10 +104,10 @@ var Foo = function () {// By convention the constructor name starts with upper c
 
 ### Apply Invocation & Call Invocation:
 
-Apply and Call invocation differs the way argument is treated. But with respect to this both the pattern behaves in the same way. 
+Apply and Call invocation differs the way argument is treated. But with respect to this both the pattern behaves in the same way.
 The beauty of these two patterns is that this can be set to any desired context.
 
-**ES5** provides the [`bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) functionality, it creates a new function that, when called, has its `this` keyword set to the provided value. 
+**ES5** provides the [`bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) functionality, it creates a new function that, when called, has its `this` keyword set to the provided value.
 
 ```js
 var bar = {}
@@ -142,3 +142,20 @@ foo.bar(); // Object; that refers to foo
 A word of caution: One should refrain from using `eval`, most of the ECMAScript ninjas consider “`eval` is evil”.
 However, I feel that `eval` is too powerful to be utilized.
 Improper utilization can produce unexpected results, which can be really frightening, for example [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
+
+### Anonymous function
+
+In `strict` mode; it's `undefined` other wise global `this`, `Window` in browser.
+
+```js
+(function() {
+  'use strict';
+  console.log(this); // undefined
+}());
+
+(function() {
+  console.log(this); //[object global]
+}());
+```
+
+In **ES2015 arrow function**, `this` is the lexical `this`.
