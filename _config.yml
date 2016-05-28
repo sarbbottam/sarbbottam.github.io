@@ -1,15 +1,12 @@
 # Site settings
 title: sarbbottam.github.io
-#email: your-email@domain.com
-#description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+email: sarbbottam@gmail.com
+description: Sarbbottam's weblog
 baseurl: ""
 url: "https://sarbbottam.github.io/"
 twitter_username: sarbbottam
 github_username:  sarbbottam
 
 # Build settings
-#markdown: kramdown
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
+markdown: kramdown
 permalink: pretty
