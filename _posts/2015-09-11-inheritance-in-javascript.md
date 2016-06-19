@@ -68,7 +68,7 @@ Square.prototype = new Rectangle();
 Please refer the below example:
 <p data-height="850" data-theme-id="0" data-slug-hash="XmJqgb" data-default-tab="js" data-user="sarbbottam" class='codepen'>See the Pen <a href='http://codepen.io/sarbbottam/pen/XmJqgb/'>JavaScript Inheritance - Pre ES5</a> by Sarbbottam Bandyopadhyay (<a href='http://codepen.io/sarbbottam'>@sarbbottam</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
->>What is the purpose of `Square.prototype.constructor = Square;`?
+> What is the purpose of `Square.prototype.constructor = Square;`?
 
 Every instances of `Square` will have a constructor of `Square`, not of `Rectangle`.
 

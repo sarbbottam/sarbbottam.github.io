@@ -38,7 +38,7 @@ If you prefer accessing web pages via keyboard, I hope this extension will be he
 
 ## Disclaimer
 
->> The idea behind this extension was to help me at my Job
+> The idea behind this extension was to help me at my Job
 
 As a part of my job, I started auditing web interface w.r.t. accessibility.
 Keyboard operability is one of the key aspect of accessibility.
