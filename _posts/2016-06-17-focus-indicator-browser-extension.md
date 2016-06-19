@@ -5,7 +5,7 @@ date:   2016-06-17 17:30:00
 categories: Accessibility, JavaScript, Browser Extension
 ---
 
-TL;DR;
+## TL;DR;
 
 <a href="https://www.youtube.com/watch?v=r-AYcPC-Dsg" title="Screencast - Focus Indicator Chrome extension in action">
   <img src="http://i.imgur.com/qqEXCal.png" alt="Screencast - Focus Indicator Chrome extension in action" style="display: block; max-width:100%; margin: auto"/>

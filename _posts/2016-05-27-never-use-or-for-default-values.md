@@ -5,6 +5,8 @@ date:   2016-05-27 11:30:00
 categories: javascript
 ---
 
+## TL;DR;
+
 I will never use `||` for default values, but [default parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters).
 
 For example, instead of
@@ -25,7 +27,7 @@ function sort(array, startIndex = 0, endIndex = array.length - 1) {
 }
 ```
 
-## TL;DR;
+## Why?
 
 I have been using `||` for default values, till date.
 
