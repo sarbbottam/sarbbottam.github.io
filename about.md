@@ -4,8 +4,24 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Hello!
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+```json
+{
+  "name": "Sarbbottam Bandyopadhyay",
+  "priorities": ["family", "job"],
+  "job title": "Senior Software Engineer, Web Accessibility",
+  "employer": "LinkedIn",
+  "past employers": ["Yahoo", "ABM", "TCS"],
+  "social handle": "@sarbbottam"
+}
+```
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I am a front-end engineer, with more than 11 years of experience.
+You can read more about my professional experience at [LinkedIn](https://www.linkedin.com/in/sarbbottam)
+
+At my spare time, I either, play with my daughter, cook with my wife, code, paint or surf `www`.
+
+Check out my [GitHub](https://github.com/sarbbottam) profile, for my projects.
+
+Thanks for visiting!
