@@ -145,6 +145,6 @@ Don't alter the natural visual `tab order`
 
 ---
 
-I am planning to write a follow up post on `tab order` simulation. If you have enjoyed reading this post you might also like it.
+If you have enjoyed reading this post you might also like [tab order and tab navigation simulation](/accessibility,/html,/css,/javascript/2016/10/16/tab-order-and-tab-navigation-simulation/).
 
 You can follow me in twitter [@sarbbottam](https://twitter.com/sarbbottam) and learn about any new posts.
