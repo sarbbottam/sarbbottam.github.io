@@ -3,12 +3,13 @@ title: Sarbbottam's weblog
 description: Sarbbottam's weblog
 email: sarbbottam@gmail.com
 baseurl: ""
-url: "https://sarbbottam.github.io/"
+url: "https://sarbbottam.github.io"
 twitter_username: sarbbottam
 github_username:  sarbbottam
 
 gems:
   - jekyll-redirect-from
+  - jekyll-seo-tag
 
 # Build settings
 markdown: kramdown
