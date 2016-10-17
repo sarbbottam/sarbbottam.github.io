@@ -3,6 +3,7 @@ layout: post
 title:  "Multiple submit buttons and JavaScript"
 date:   2015-08-21 17:40:00
 categories: forms
+redirect_from: /forms/2015/08/21/multiple-submit-buttons-and-javascript/
 ---
 
 ## Why do I need two submit buttons in a form?

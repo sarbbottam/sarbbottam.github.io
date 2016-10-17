@@ -3,6 +3,7 @@ layout: post
 title:  "No sound for audio when iPhone connected over Bluethooth"
 date:   2015-11-28 13:30:00
 categories: bluetooth
+redirect_from: /bluetooth/2015/11/28/bluetooth-audio-no-sound-iphone/
 ---
 
 All of a sudden, there was no Bluetooth audio in my car (Corolla 2016), when paired with my iPhone. It has been working fine, so far. As usual, I did not RTFM. Not sure, if that would have helped. I could have leaved with out the music but it was difficult to follow Google Map's navigation instruction. Yes, I use Google Maps instead of the default. I had to keep looking at the phone, quite a often.

@@ -3,6 +3,7 @@ layout: post
 title:  "I will never use || (OR) for default values"
 date:   2016-05-27 11:30:00
 categories: javascript
+redirect_from: /javascript/2016/05/27/never-use-or-for-default-values/
 ---
 
 ## TL;DR;

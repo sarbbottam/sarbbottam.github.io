@@ -3,6 +3,7 @@ layout: post
 title:  "Focus Indicator - Browser(Chrome) Extension"
 date:   2016-06-17 17:30:00
 categories: Accessibility, JavaScript, Browser Extension
+redirect_from: /accessibility,/javascript,/browser/extension/2016/06/17/focus-indicator-browser-extension/
 ---
 
 ## TL;DR;

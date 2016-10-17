@@ -3,6 +3,7 @@ layout: post
 title:  "Tale of two submit buttons!"
 date:   2014-10-27 14:45:00
 categories: forms
+redirect_from: /forms/2014/10/27/tale-of-two-submit-buttons/
 ---
 
 ## Why two submit buttons?

@@ -7,6 +7,11 @@ url: "https://sarbbottam.github.io/"
 twitter_username: sarbbottam
 github_username:  sarbbottam
 
+gems:
+  - jekyll-redirect-from
+
 # Build settings
 markdown: kramdown
-permalink: pretty
+
+# Blog Settings
+permalink: /blog/:year/:month/:day/:title

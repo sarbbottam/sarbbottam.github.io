@@ -3,6 +3,7 @@ layout: post
 title:  "Do you know this?"
 date:   2015-09-16 10:50:00
 categories: oops
+redirect_from: /oops/2015/09/16/do-you-know-this/
 ---
 
 The value of `this` in ECMAScript refers to the execution context of the function.

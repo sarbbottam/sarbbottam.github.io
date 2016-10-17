@@ -3,6 +3,7 @@ layout: post
 title:  "tab order and tabindex"
 date:   2016-10-14 13:10:00
 categories: Accessibility, HTML, CSS, JavaScript
+redirect_from: /accessibility,/html,/css,/javascript/2016/10/14/tab-order-and-tabindex/
 ---
 
 ## tab order

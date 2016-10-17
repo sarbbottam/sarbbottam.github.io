@@ -3,6 +3,7 @@ layout: post
 title:  "Show more/less actionable list items"
 date:   2016-06-26 10:30:00
 categories: Accessibility, CSS
+redirect_from: /accessibility,/css/2016/06/26/show-more-show-less-actionable-list-items/
 ---
 
 ## TL;DR;

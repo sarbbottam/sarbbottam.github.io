@@ -3,6 +3,7 @@ layout: post
 title:  "Use button if you mean it"
 date:   2016-06-11 11:50:00
 categories: Accessibility, JavaScript
+redirect_from: /accessibility,/javascript/2016/06/11/use-button-if-you-mean-it/
 ---
 
 Use `<button>` if you want it to behave as a button.

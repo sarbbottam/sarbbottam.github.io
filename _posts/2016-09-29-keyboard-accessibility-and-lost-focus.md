@@ -3,6 +3,7 @@ layout: post
 title:  "Keyboard Accessibility and Lost Focus"
 date:   2016-09-29 16:50:00
 categories: Accessibility, CSS
+redirect_from: /accessibility,/css/2016/09/29/keyboard-accessibility-and-lost-focus/
 ---
 
 ## TL;DR;
