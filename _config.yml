@@ -4,8 +4,11 @@ description: Sarbbottam's weblog
 email: sarbbottam@gmail.com
 baseurl: ""
 url: "https://sarbbottam.github.io"
-twitter_username: sarbbottam
-github_username:  sarbbottam
+github:
+  username:  sarbbottam
+twitter:
+  username: sarbbottam
+author: sarbbottam
 
 gems:
   - jekyll-redirect-from
