@@ -75,7 +75,7 @@ As we are acting upon the `click event` of the `submit buttons` and not on the `
 
 > What could we do to address this problem?
 
-As suggested [in this tweet](https://twitter.com/clcpolevaulter/status/529822434287841280) with respect to [my previous post](https://sarbbottam.github.io/forms/2014/10/27/tale-of-two-submit-buttons/), if we listen to the `form submit event` and perform our desired action,
+As suggested [in this tweet](https://twitter.com/clcpolevaulter/status/529822434287841280) with respect to [my previous post](/blog/2014/10/27/tale-of-two-submit-buttons/), if we listen to the `form submit event` and perform our desired action,
 the `submit button name/value` would be passed to the `action` handler.
 
 > Wait a second, I have to fire beacons with respect to the `submit button clicked`. How do I know which button was clicked?
@@ -128,7 +128,7 @@ And in **iOS Safari** `button` never gets the focus, neither in **Chrome for iOS
 
 ### Cross browser solution
 
-In my [earlier proposed solution](https://sarbbottam.github.io/forms/2014/10/27/tale-of-two-submit-buttons/#(previously)-proposed-solution-(not-optimal))  I used a `hidden field`.
+In my [earlier proposed solution](/blog/2014/10/27/tale-of-two-submit-buttons/#(previously)-proposed-solution-(not-optimal))  I used a `hidden field`.
 {% highlight html %}
 <input type="hidden" id="proxy-submit-button">
 {% endhighlight %}
