@@ -1,7 +1,10 @@
 ---
 layout: post
-title:  "Show more/less actionable list items"
-date:   2016-06-26 10:30:00
+title: Show more/less actionable list items
+description:
+  Hide the extra items completely, if you mean it.
+  Otherwise they might be avialable to keyboard only and screen reader users, even though not available for mouse only users.
+date: 2016-06-26 10:30:00
 categories: Accessibility, CSS
 redirect_from: /accessibility,/css/2016/06/26/show-more-show-less-actionable-list-items/
 ---

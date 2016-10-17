@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Inheritance in JavaScript"
-date:   2015-09-11 20:50:00
-categories: oops
+title: Inheritance in JavaScript
+description:
+  JavaScript does not follow classical inheritence but prototypal inheritence.
+date: 2015-09-11 20:50:00
+categories: JavaScript, OOps
 redirect_from: /oops/2015/09/11/inheritance-in-javascript/
 ---
 

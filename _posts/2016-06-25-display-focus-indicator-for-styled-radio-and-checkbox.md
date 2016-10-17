@@ -1,7 +1,10 @@
 ---
 layout: post
-title:  "Display focus-indicator for styled radio and checkbox"
-date:   2016-06-25 10:30:00
+title: Display focus-indicator for styled radio and checkbox
+description:
+  When styling radio buttons and checkboxes by hiding them visually
+  and using pseudo-elements, along with pseudo-classes, please ensure to add custom focus indicator.
+date: 2016-06-25 10:30:00
 categories: Accessibility, CSS
 redirect_from: /accessibility,/css/2016/06/25/display-focus-indicator-for-styled-radio-and-checkbox/
 ---

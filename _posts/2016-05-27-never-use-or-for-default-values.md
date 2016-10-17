@@ -1,7 +1,9 @@
 ---
 layout: post
-title:  "I will never use || (OR) for default values"
-date:   2016-05-27 11:30:00
+title: I will never use || (OR) for default values
+description:
+  I will never use OR for default values, but es2015 default parameter
+date: 2016-05-27 11:30:00
 categories: javascript
 redirect_from: /javascript/2016/05/27/never-use-or-for-default-values/
 ---

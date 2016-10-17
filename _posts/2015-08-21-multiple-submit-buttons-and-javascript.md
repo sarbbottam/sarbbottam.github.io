@@ -1,7 +1,10 @@
 ---
 layout: post
-title:  "Multiple submit buttons and JavaScript"
-date:   2015-08-21 17:40:00
+title: Multiple submit buttons and JavaScript
+description:
+  If you are relying on the value of submit button in the form data and the form is submitted via JavaScript, you might want to read this post.
+categories: HTML Forms, JavaScript
+date: 2015-08-21 17:40:00
 categories: forms
 redirect_from: /forms/2015/08/21/multiple-submit-buttons-and-javascript/
 ---

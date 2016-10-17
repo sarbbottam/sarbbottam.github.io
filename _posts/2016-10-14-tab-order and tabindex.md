@@ -1,7 +1,10 @@
 ---
 layout: post
-title:  "tab order and tabindex"
-date:   2016-10-14 13:10:00
+title: tab order and tabindex
+date: 2016-10-14 13:10:00
+description:
+  The order in which focusable elements are focused via tab press, is called tab order.
+  This post decribes why tab order is so important for accessibility, specially for keyboard only users.
 categories: Accessibility, HTML, CSS, JavaScript
 redirect_from: /accessibility,/html,/css,/javascript/2016/10/14/tab-order-and-tabindex/
 ---

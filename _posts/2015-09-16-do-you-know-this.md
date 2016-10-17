@@ -1,8 +1,11 @@
 ---
 layout: post
-title:  "Do you know this?"
-date:   2015-09-16 10:50:00
-categories: oops
+title: Do you know this?
+description:
+  The value of this in JavaScript depends on the execution context.
+  This post explain how to determine the value of this in different context.
+date: 2015-09-16 10:50:00
+categories: JavaScript, OOPs
 redirect_from: /oops/2015/09/16/do-you-know-this/
 ---
 
