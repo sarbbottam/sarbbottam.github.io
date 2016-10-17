@@ -131,6 +131,12 @@ a:visited { color: #205caa; }
   top: 3px;
 }
 
+/* Image styles */
+/* ----------------------------------------------------------*/
+.center-image {
+  display: block;
+  margin: 0 auto;
+}
 
 /* Page Content styles */
 /* ----------------------------------------------------------*/
