@@ -5,6 +5,7 @@ description:
   Focus Indicator extension highlights the active intractable element in a webpage even when it is suppressed explicitly.
 date: 2016-06-17 17:30:00
 categories: Accessibility, JavaScript, Browser Extension
+excerpt_separator: <!--more-->
 redirect_from: /accessibility,/javascript,/browser/extension/2016/06/17/focus-indicator-browser-extension/
 ---
 
@@ -13,6 +14,8 @@ redirect_from: /accessibility,/javascript,/browser/extension/2016/06/17/focus-in
 <a href="https://www.youtube.com/watch?v=r-AYcPC-Dsg" title="Screencast - Focus Indicator Chrome extension in action">
   <img src="http://i.imgur.com/qqEXCal.png" alt="Screencast - Focus Indicator Chrome extension in action" style="display: block; max-width:100%; margin: auto"/>
 </a>
+
+<!--more-->
 
 ## What is the problem?
 

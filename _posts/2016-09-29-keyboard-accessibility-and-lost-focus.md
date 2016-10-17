@@ -6,6 +6,7 @@ description:
   This post emphasizes on the importance of visual focus indicator with examples.
 date: 2016-09-29 16:50:00
 categories: Accessibility, CSS
+excerpt_separator: <!--more-->
 redirect_from: /accessibility,/css/2016/09/29/keyboard-accessibility-and-lost-focus/
 ---
 
@@ -20,6 +21,8 @@ For example,
 * pressing `space/enter` on a button activates it.
 
 Without a visual indicator a keyboard only user has no clue to identify the active element.
+
+<!--more-->
 
 A keyboard user, uses `tab` to navigate to the focusable elements in the UI.
 A keyboard user, may also use up/down/left/right arrow keys for navigating between groups or widgets, for example, radio buttons, tab panel, suggestions in a typeahead etc.

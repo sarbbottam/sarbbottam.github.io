@@ -4,7 +4,8 @@ title: I will never use || (OR) for default values
 description:
   I will never use OR for default values, but es2015 default parameter
 date: 2016-05-27 11:30:00
-categories: javascript
+categories: JavaScript
+excerpt_separator: <!--more-->
 redirect_from: /javascript/2016/05/27/never-use-or-for-default-values/
 ---
 
@@ -29,6 +30,8 @@ function sort(array, startIndex = 0, endIndex = array.length - 1) {
   ...
 }
 ```
+
+<!--more-->
 
 ## Why?
 

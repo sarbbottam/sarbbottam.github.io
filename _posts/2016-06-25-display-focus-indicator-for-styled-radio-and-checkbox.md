@@ -6,6 +6,7 @@ description:
   and using pseudo-elements, along with pseudo-classes, please ensure to add custom focus indicator.
 date: 2016-06-25 10:30:00
 categories: Accessibility, CSS
+excerpt_separator: <!--more-->
 redirect_from: /accessibility,/css/2016/06/25/display-focus-indicator-for-styled-radio-and-checkbox/
 ---
 
@@ -17,6 +18,8 @@ along with [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/pse
 _please ensure to add custom focus indicator_.
 
 Otherwise, a user accessing the user interface via keyboard, has no idea, what is the active element/field.
+
+<!--more-->
 
 ### CodePen example - Styled radio & checkbox without focus-indicator
 

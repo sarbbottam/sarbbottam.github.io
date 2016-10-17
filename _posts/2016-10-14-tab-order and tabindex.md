@@ -6,6 +6,7 @@ description:
   The order in which focusable elements are focused via tab press, is called tab order.
   This post decribes why tab order is so important for accessibility, specially for keyboard only users.
 categories: Accessibility, HTML, CSS, JavaScript
+excerpt_separator: <!--more-->
 redirect_from: /accessibility,/html,/css,/javascript/2016/10/14/tab-order-and-tabindex/
 ---
 
@@ -14,6 +15,8 @@ redirect_from: /accessibility,/html,/css,/javascript/2016/10/14/tab-order-and-ta
 A keyboard only user, primarily uses `tab` key to reach the actionable controls in a web page.
 The order in which `focusable` elements are focused via `tab` press, is called `tab order`.
 When a user presses `tab`, browser focuses the next `tabable` element in the `tab order`.
+
+<!--more-->
 
 All `tabable` elements are `focusable` but not all `focusable` elements are `tabable`.
 

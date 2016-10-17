@@ -3,9 +3,9 @@ layout: post
 title: Multiple submit buttons and JavaScript
 description:
   If you are relying on the value of submit button in the form data and the form is submitted via JavaScript, you might want to read this post.
-categories: HTML Forms, JavaScript
 date: 2015-08-21 17:40:00
-categories: forms
+categories: HTML Forms, JavaScript
+excerpt_separator: <!--more-->
 redirect_from: /forms/2015/08/21/multiple-submit-buttons-and-javascript/
 ---
 
@@ -14,6 +14,8 @@ redirect_from: /forms/2015/08/21/multiple-submit-buttons-and-javascript/
 Two sets of action can happen as per users’ desire, guided by the respective `submit buttons`.
 Might be a confusing user experience for a `form` *with* `input fields`, but helpful for a `form` *with out any* `input field`.
 May be also helpful, for a `form` *with only one* `input field`.
+
+<!--more-->
 
 An example would be, send text message or make a voice call to the users’ phone number for:
 

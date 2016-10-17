@@ -6,13 +6,14 @@ description:
   Otherwise they might be avialable to keyboard only and screen reader users, even though not available for mouse only users.
 date: 2016-06-26 10:30:00
 categories: Accessibility, CSS
+excerpt_separator: <!--more-->
 redirect_from: /accessibility,/css/2016/06/26/show-more-show-less-actionable-list-items/
 ---
 
 ## TL;DR;
 
 Hide the extra items completely, if you mean it.
-
+<!--more-->
 ## CodePen example - Show more/less, bad user experience
 
 There are 10 links as line items, with mouse only first 5 are available(accessible) initially.
