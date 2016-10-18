@@ -16,7 +16,7 @@ body {
   background-color: #fdfdfd;
 }
 
-h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; color: #666;}
+h1, h2, h3, h4, h5, h6 {font-weight: 300; color: #666;}
 
 a         { color: #2a7ae2; text-decoration: none; }
 a:hover   { color: #000; text-decoration: underline; }
@@ -88,6 +88,10 @@ a:visited { color: #205caa; }
 }
 
 .site-footer .column { float: left; margin-bottom: 15px; }
+
+.footer-col-1-2 {
+  width: 50%;
+}
 
 .footer-col-1 {
   width: 270px; /*fallback*/

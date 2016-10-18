@@ -1,6 +1,6 @@
 # Site settings
-title: Sarbbottam's weblog
-description: Sarbbottam's weblog
+title: Sarbbottam's
+description: Sarbbottam’s digital home. Where he shares his projects, screencasts, write-ups on web accessibility, html, css, javascript, front-end techniques and front-end eco system.
 email: sarbbottam@gmail.com
 baseurl: ""
 url: "https://sarbbottam.github.io"
