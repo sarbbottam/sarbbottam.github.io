@@ -1,16 +1,11 @@
 ---
 layout: post
 title: Keyboard Accessibility and Lost Focus
-description:
-  Visual focus indicator is must for a keyboard user, to identify an active element, so that the user can press the corresponding desired keys, to interact with the active element.
-  This post emphasizes on the importance of visual focus indicator with examples.
 date: 2016-09-29 16:50:00
 categories: Accessibility, CSS
 excerpt_separator: <!--more-->
 redirect_from: /accessibility,/css/2016/09/29/keyboard-accessibility-and-lost-focus/
 ---
-
-## TL;DR;
 
 Visual indicator is must for a keyboard user, to identify an active element, so that the user can press the corresponding desired keys, to interact with the active element.
 

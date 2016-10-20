@@ -1,14 +1,12 @@
 ---
 layout: post
 title: tab order and tab navigation simulation
-description:
-  This is a follow up of tab order and tabindex post, simulating tab order and tab navigation using left and right arrows.
 date: 2016-10-16 11:20:00
 categories: Accessibility, HTML, CSS, JavaScript
 redirect_from: /accessibility,/html,/css,/javascript/2016/10/16/tab-order-and-tab-navigation-simulation/
 ---
 
->This is a follow up of [tab order and tabindex](/blog/2016/10/14/tab-order-and-tabindex) post.
+>This is a follow up of [tab order and tabindex](/blog/2016/10/14/tab-order-and-tabindex) post, simulating tab order and tab navigation using left and right arrows.
 
 In `tab navigation`, one uses
 

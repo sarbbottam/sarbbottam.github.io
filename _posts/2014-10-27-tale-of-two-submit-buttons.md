@@ -1,15 +1,10 @@
 ---
 layout: post
 title: Tale of two submit buttons!
-description:
-  If you are relying on the value of submit button in the form data and the form is submitted via JavaScript, you might want to read this post.
 date: 2014-10-27 14:45:00
 categories: HTML Forms, JavaScript
-excerpt_separator: <!--more-->
 redirect_from: /forms/2014/10/27/tale-of-two-submit-buttons/
 ---
-
-## Why two submit buttons?
 
 Two different action as per users' preference, on the same data provided.
 For (dumb) example: User can choose to be greeted either in Spanish or in French.

@@ -2,8 +2,6 @@
 layout: post
 title: No sound for audio when iPhone connected over Bluethooth
 date: 2015-11-28 13:30:00
-description:
-  All of a sudden, there was no Bluetooth audio in my car (Corolla 2016), when paired with my iPhone.
 categories: bluetooth, toyota
 redirect_from: /bluetooth/2015/11/28/bluetooth-audio-no-sound-iphone/
 ---
