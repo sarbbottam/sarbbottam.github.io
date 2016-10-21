@@ -1,0 +1,31 @@
+.post-header {
+  margin: 10px 0 30px;
+}
+
+.post-header .meta {
+  font-size: 15px;
+  color: #818181;
+  margin-top: 5px;
+}
+
+.post-content {
+  margin: 0 0 30px;
+}
+
+.post-content > * {
+  margin: 20px 0;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 20px;
+  margin-left: 1.35em;
+}
+
+@media screen and (max-width: 600px) {
+  .post-content ul,
+  .post-content ol {
+    padding-left: 10px;
+  }
+}
+

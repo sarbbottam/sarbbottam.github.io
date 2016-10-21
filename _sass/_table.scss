@@ -1,0 +1,26 @@
+table {
+  max-width: 100%;
+  overflow: auto;
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+tr > td:first-child,
+tr > th:first-child {
+  border-left: 0;
+}
+tr:last-child > td {
+  border-bottom: 0;
+}
+
+td,
+th {
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}

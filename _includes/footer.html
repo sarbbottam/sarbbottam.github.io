@@ -1,17 +1,7 @@
 <footer class="site-footer">
 
-  <div class="wrap">
-
-    <!-- <h2 class="footer-heading">{{ site.title }}</h2> -->
-
-    <!-- <div class="footer-col-1 column">
-      <ul>
-        <li>{{ site.title }}</li>
-        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-      </ul>
-    </div> -->
-
-    <div class="footer-col-1 column">
+  <div class="wrap flex-wrap">
+    <div>
       <a href="https://github.com/{{ site.github.username }}">
         <span class="icon github">
           <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -30,7 +20,7 @@
         <span class="username">{{ site.github.username }}</span>
       </a>
     </div>
-    <div class="footer-col-1 column">
+    <div>
       <a href="https://twitter.com/{{ site.twitter.username }}">
         <span class="icon twitter">
           <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -46,6 +36,9 @@
         </span>
         <span class="username">{{ site.twitter.username }}</span>
       </a>
+    </div>
+    <div>
+      subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
     </div>
   </div>
 

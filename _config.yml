@@ -18,6 +18,9 @@ gems:
 # Build settings
 markdown: kramdown
 
+sass:
+  style: compressed
+
 # Blog Settings
 permalink: /blog/:year/:month/:day/:title
 paginate_path: /page:num/
