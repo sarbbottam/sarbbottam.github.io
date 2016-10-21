@@ -1,12 +1,7 @@
-.post-header {
-  margin: 12px 0 32px;
-
-  /* unify .post-header .meta and .post-date */
-  & .meta {
-    font-size: $post-meta-font-size;
-    color: $post-meta-color;
-    margin-top: 4px;
-  }
+.post-date {
+  font-size: $post-meta-font-size;
+  color: $post-meta-color;
+  display: block;
 }
 
 .post-content {

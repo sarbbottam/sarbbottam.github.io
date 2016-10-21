@@ -17,13 +17,6 @@
   line-height: $heading-line-height;
 }
 
-/* unify .post-header .meta and .post-date */
-.post-date {
-  display: block;
-  font-size: $post-meta-font-size;
-  color: $post-meta-color;
-}
-
 @media screen and (max-width: 600px) {
   /* extend .post-link from h2 */
   .post-link {
