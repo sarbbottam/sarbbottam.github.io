@@ -91,6 +91,7 @@
     background-color: white;
     border-radius: 4px;
     border: 1px solid #e8e8e8;
+    line-height: 2.5;
 
     & .menu-icon {
       display: block;
@@ -100,6 +101,7 @@
       width: 36px;
       text-align: center;
       line-height: 36px;
+      margin: 0;
     }
 
     & .menu-icon svg {
@@ -111,6 +113,11 @@
       clear: both;
       margin-bottom: 4px;
       display: none;
+
+      & a {
+        display: block;
+        margin: 0 10px;
+      }
     }
 
     &:hover .trigger {
