@@ -10,10 +10,10 @@ body {
 
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 300;
-  background-color: #fdfdfd;
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+  font-weight: $default-font-weight;
+  background-color: $body-background-color;
 }
 
 h1,
@@ -22,48 +22,68 @@ h3,
 h4,
 h5,
 h6 {
-  color: #666;
-  font-weight: 300;
-  line-height: 1;
+  color: $heading-color;
+  font-weight: $default-font-weight;
+  line-height: $heading-line-height;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: $h1-font-size;
   letter-spacing: -1.75px;
   margin-bottom: 24px;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: $h2-font-size;
   letter-spacing: -1.25px;
 }
 
 h3 {
-  font-size: 32px;
+  font-size: $h3-font-size;
   letter-spacing: -1px;
 }
 
 h4 {
-  font-size: 28px;
+  font-size: $h4-font-size;
   letter-spacing: -1px;
 }
 
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: $h1-mobile-font-size;
+  }
+
+  h2 {
+    font-size: $h2-mobile-font-size;
+  }
+
+  h3 {
+    font-size: $h3-mobile-font-size;
+  }
+
+  h4 {
+    font-size: $h4-mobile-font-size;
+  }
+}
+
 a {
-  color: #2a7ae2; text-decoration: none;
+  color: $a-color;
+  text-decoration: none;
 
   &:hover {
-    color: #000; text-decoration: underline;
+    color: $a-hover-color;
+    text-decoration: underline;
   }
 
   &:visited {
-    color: #205caa;
+    color: $a-visited-color;
   }
 }
 
 blockquote {
-  border-left: 4px solid #888;
+  border-left: $blockquote-border;
   padding-left: 8px;
-  color: #888;
+  color: $blockquote-color;
   letter-spacing: -1px;
   font-style: italic;
   margin: 28px 0;
@@ -71,12 +91,12 @@ blockquote {
 
 pre,
 code {
-  border: 1px solid #ddd;
-  background-color: #eee;
-  color: #555;
+  border: $code-border;
+  background-color: $code-background-color;
+  color: $code-color;
   padding: 8px 12px;
-  border-radius: 2px;
-  font-size: 16px;
+  border-radius: $default-border-radius;
+  font-size: $code-font-size;
   overflow: auto;
 }
 
@@ -95,27 +115,5 @@ p {
 
   &:first-of-type {
     margin-bottom: 12px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 36px;
-  }
-
-  h2 {
-    font-size: 32px;
-  }
-
-  h3 {
-    font-size: 28px;
-  }
-
-  h4 {
-    font-size: 24px;
-  }
-
-  blockquote {
-    padding-left: 12px;
   }
 }

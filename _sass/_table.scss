@@ -2,12 +2,12 @@ table {
   max-width: 100%;
   overflow: auto;
   display: inline-block;
-  border: 1px solid #ddd;
+  border: $table-border;
   border-collapse: collapse;
 }
 
 tr:nth-child(even) {
-  background-color: #f8f8f8;
+  background-color: $tr-even-background-color;
 }
 
 tr > td:first-child,
@@ -20,7 +20,7 @@ tr:last-child > td {
 
 td,
 th {
-  border-left: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-left: $table-border;
+  border-bottom: $table-border;
   padding: 12px;
 }

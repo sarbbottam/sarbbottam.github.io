@@ -1,0 +1,61 @@
+$default-font-size: 20px;
+$default-font-weight: 300;
+$default-line-height: 1.5;
+$default-border-radius: 2px;
+
+$body-background-color: #fdfdfd;
+
+$heading-color: #666;
+$heading-line-height: 1;
+
+$h1-font-size: 40px;
+$h2-font-size: $h1-font-size - 8;
+$h3-font-size: $h2-font-size - 4;
+$h4-font-size: $h3-font-size - 4;
+
+$h1-mobile-font-size: 36px;
+$h2-mobile-font-size: $h1-mobile-font-size - 8;
+$h3-mobile-font-size: $h2-mobile-font-size - 4;
+$h4-mobile-font-size: $h3-mobile-font-size - 4;
+
+$a-color: #2a7ae2;
+$a-hover-color: #000;
+$a-visited-color: #205caa;
+
+$blockquote-border: 4px solid #888;
+$blockquote-color: #888;
+
+$code-border: 1px solid #ddd;
+$code-background-color: #eee;
+$code-color: #555;
+$code-font-size: 16px;
+
+$site-header-min-height: 56px;
+$site-header-border-top: 4px solid #333;
+$site-header-border-bottom: 1px solid #e8e8e8;
+$site-header-background-color: white;
+
+$site-footer-border-top: 1px solid #e8e8e8;
+
+$site-title-color: #333;
+$site-title-font-size: 28px;
+
+$site-nav-a-color: #727272;
+
+$site-nav-background-color: white;
+$site-nav-border: 1px solid #e8e8e8;;
+
+$menu-icon-color: #505050;
+$menu-icon-font-size: 24px;
+$menu-line-height: 36px;
+
+$menu-icon-svg-height: $menu-line-height / 2;
+
+$post-meta-font-size: 16px;
+$post-meta-color: #818181;
+
+$table-border: 1px solid #ddd;
+$tr-even-background-color: #f8f8f8;
+
+$terminal-border: 1px solid #000;
+$terminal-background-color: #333;

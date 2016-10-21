@@ -1,10 +1,10 @@
 pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
+  border: $terminal-border;
+  background-color: $terminal-background-color;
   color: #FFF;
-  border-radius: 4px;
+  border-radius: $default-border-radius;
 
   & code {
-    background-color: #333;
+    background-color: $terminal-background-color;
   }
 }
