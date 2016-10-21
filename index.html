@@ -12,9 +12,9 @@ image:
     <li class="posts-li">
       <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      <article class="post-content">
+      <div class="post-content">
         {{ post.excerpt }}
-      </article>
+      </div>
     </li>
   {% endfor %}
 </ul>
