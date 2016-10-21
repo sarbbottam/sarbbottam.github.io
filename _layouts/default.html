@@ -9,7 +9,11 @@
 
     <div class="page-content">
       <div class="wrap">
-      <h1>{{ page.heading }}</h1>
+      {% assign title = page.title %}
+      {% if page.heading %}
+      {% assign title = page.heading %}
+      {% endif %}
+      <h1>{{ title }}</h1>
       {{ content }}
       </div>
     </div>
