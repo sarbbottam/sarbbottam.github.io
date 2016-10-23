@@ -3,7 +3,16 @@ layout: default
 ---
 <div class="post">
 
-  <p class="post-date">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+  <p class="post-meta">
+    {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+     -
+    {% assign words = content | number_of_words %}
+    {% if words < 360 %}
+      1 min read
+    {% else %}
+      {{ words | divided_by:180 }} mins read
+    {% endif %}
+  </p>
 
   <article class="post-content">
   {{ content }}
