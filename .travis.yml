@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.2.5
+script: bundle exec jekyll build
+after_success: sh ./scripts/publish.sh
+branches:
+  only:
+  - main
+env:
+  global:
+  - JEKYLL_ENV: production
+  - GH_REF: github.com/sarbbottam/sarbbottam.github.io
+  - secure: WgKqBMf8aM4bzoC5xJwh5D5dCYiFrD2grvcoy8zG957+1tdiO0ah9W8HDjBdLB9swFm3pACldbbfBtFjJIWJVe20ydJZoe9Adl6PijotnwUPuWflWZnD2cVq4sLA19qvGAz3YH3txdJxijafuLAIAFz/IAVBh5O5JrNV6JKyg1nNMuQH4dq1ftY3ldnfPJO0SfvdqmroyF5w6ck3Rt9SSiS/7tfRmXEGzOXMd0XpUFgkYqWFEUb2d/VqftR2bGEabKH1eooHbpMtTONC2bzG/XRuD3Pd6p2WVAmL43xxjWLhzZQmFjw069AqL7UFRfi5u77ZUcTUj/53VFzqXOekF/myMcXb7K1CynqBALxG5bZTAvNb8oaVibKH8aKXGZyGHPj2iK8tZv/eRDHcX37D5hc2vNFpb16S+5IhSa+DhsYFQR5SaUR6WFj5WUKTMMHalAPVqLup/rdd8rgVpzBnI5emy6qIm/JRPtkfTN2SFhmA+KTyv0rYHopfp9gSwWzlQkNkFJqorC8+n5caarvFE8MHkU+z3bMsGqOT4SXlFIN2WakjZpWCRgaSaao+OsQFWGqc9ElJ/W4LCJI4NQBYkTQjHPfME0gvcZtAECC4zZjk9hboGlymdyNDAs9JVG7YwpBWbV8+f4jX9Nao5ocip7KDeKdt61EX5R1qDnzt+W8=
