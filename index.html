@@ -1,6 +1,11 @@
 ---
 layout: default
 heading: Posts
+paginate:
+  collection: posts
+  per_page: 5
+  limit: 5
+  permalink: /blog/page/:num/
 image:
   path: /images/sarbbottam.jpeg
   height: 100
@@ -43,7 +48,7 @@ image:
     {% elsif page == 1 %}
       <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
     {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      <a href="{{ site.paginate_path.blog | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
     {% endif %}
   {% endfor %}
 

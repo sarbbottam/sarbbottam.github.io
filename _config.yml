@@ -13,7 +13,7 @@ author: sarbbottam
 gems:
   - jekyll-redirect-from
   - jekyll-seo-tag
-  - jekyll-paginate
+  - octopress-paginate
 
 # Build settings
 markdown: kramdown
@@ -23,5 +23,5 @@ sass:
 
 # Blog Settings
 permalink: /blog/:year/:month/:day/:title
-paginate_path: /page:num/
-paginate: 5
+paginate_path:
+  blog: /blog/page/:num/
