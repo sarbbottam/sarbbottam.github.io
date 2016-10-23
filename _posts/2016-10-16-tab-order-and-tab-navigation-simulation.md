@@ -58,7 +58,3 @@ For convenience, I have also embedded the corresponding JavaScript below.
 >Do browsers facilitate `tab navigation` in similar fashion?
 
 _I have no idea_ :)
-
----
-
-If you have enjoyed reading this post you can follow me in twitter [@sarbbottam](https://twitter.com/sarbbottam) and learn about any new posts.

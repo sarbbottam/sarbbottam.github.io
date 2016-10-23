@@ -102,7 +102,3 @@ When the contents gets updated with out a page load, screen reading software has
 However utilizing `guided focus management` one can explicitly let the screen reading software read out the updates.
 
 _Guided focus management is higly desired in Single Page Applications._
-
----
-
-If you have enjoyed reading this post you can follow me in twitter [@sarbbottam](https://twitter.com/sarbbottam) and learn about any new posts.
