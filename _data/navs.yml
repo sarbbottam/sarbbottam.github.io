@@ -1,4 +1,6 @@
 - url: /
   text: Blog
+- url: /project
+  text: Project
 - url: /about
   text: About
