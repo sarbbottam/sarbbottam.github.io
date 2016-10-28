@@ -17,7 +17,7 @@ If you, want to fake any other `HTML element` element as `<button>`, you have to
 * can be activated by pressing `enter` and `space` keys, i.e. invoke the click handler
 * is treated as `button` by assistive technologies, for example, screen reading software
 
-For example, try it at [sarbbottam.github.io/empower-your-users/button-accessible.html](http://sarbbottam.github.io/empower-your-users/button-accessible.html)
+For example, try it at [sarbbottam.github.io/empower-your-users/button/accessible/](https://sarbbottam.github.io/empower-your-users/button/accessible/)
 
 `<button>Surprise me!</button>` and `function clickHandler(e) { ... } button.addEventListener('click', clickHandler);` is sufficient to satisfy all the criteria.
 
@@ -31,7 +31,7 @@ You have to
 * listen to `keydown` event and detect if `enter` or `space` is pressed and invoke the `click` handler
 * use `role=button` so that it is treated as `button` by assistive technologies, for example, screen reading software
 
-Otherwise, it would result in a broken behavior, try it out at [sarbbottam.github.io/empower-your-users/button-inaccessible.html](http://sarbbottam.github.io/empower-your-users/button-inaccessible.html)
+Otherwise, it would result in a broken behavior, try it out at [sarbbottam.github.io/empower-your-users/button/inaccessible](https://sarbbottam.github.io/empower-your-users/button/inaccessible)
 
 The markup would look something like
 
