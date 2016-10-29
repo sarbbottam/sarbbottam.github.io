@@ -1,4 +1,4 @@
-# Site settings
+# site
 title: Sarbbottam’s weblog
 description: Sarbbottam’s weblog on web accessibility, html, css, javascript, front-end techniques and front-end eco system.
 email: sarbbottam@gmail.com
@@ -10,24 +10,23 @@ twitter:
   username: sarbbottam
 author: sarbbottam
 
+# collection
 collections:
   posts:
     output: true
     permalink: /blog/:year/:month/:day/:title
   projects:
 
+# pagination
+paginate_path:
+  blog: /blog/page/:num/
+  project: /project/page/:num/
+
+# build
+markdown: kramdown
+sass:
+  style: compressed
 gems:
   - jekyll-redirect-from
   - jekyll-seo-tag
   - octopress-paginate
-
-# Build settings
-markdown: kramdown
-
-sass:
-  style: compressed
-
-# Blog Settings
-paginate_path:
-  blog: /blog/page/:num/
-  project: /project/page/:num/
