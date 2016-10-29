@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Display focus-indicator for styled radio and checkbox
 date: 2016-06-25 10:30:00
 categories: Accessibility, CSS

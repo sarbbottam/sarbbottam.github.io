@@ -1,5 +1,4 @@
 ---
-layout: post
 title: I will never use || (OR) for default values
 description:
   I will never use OR for default values, but es2015 default parameter

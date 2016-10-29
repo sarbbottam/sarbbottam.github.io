@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Inheritance in JavaScript
 date: 2015-09-11 20:50:00
 categories: JavaScript, OOps

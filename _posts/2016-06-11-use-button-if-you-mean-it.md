@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Use button if you mean it
 date: 2016-06-11 11:50:00
 categories: Accessibility, JavaScript

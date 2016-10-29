@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Do you know this?
 date: 2015-09-16 10:50:00
 categories: JavaScript, OOPs

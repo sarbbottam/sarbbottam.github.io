@@ -1,5 +1,4 @@
 ---
-layout: post
 title: tab order and tabindex
 date: 2016-10-14 13:10:00
 categories: Accessibility, HTML, CSS, JavaScript

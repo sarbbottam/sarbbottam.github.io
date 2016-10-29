@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Focus Indicator - Browser(Chrome) Extension
 description:
   Focus Indicator extension highlights the active intractable element in a webpage even when it is suppressed explicitly.

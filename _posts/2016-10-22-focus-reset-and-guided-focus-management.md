@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Focus Reset and Guided Focus Management
 date: 2016-10-22 21:00:00
 categories: Accessibility, HTML, CSS, JavaScript

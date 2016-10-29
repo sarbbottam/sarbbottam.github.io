@@ -1,5 +1,4 @@
 ---
-layout: post
 title: tab order and tab navigation simulation
 date: 2016-10-16 11:20:00
 categories: Accessibility, HTML, CSS, JavaScript

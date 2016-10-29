@@ -22,6 +22,18 @@ paginate_path:
   blog: /blog/page/:num/
   project: /project/page/:num/
 
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts"
+    values:
+      layout: "post"
+      image:
+        path: /images/sarbbottam.jpeg
+        height: 100
+        width: 100
+
 # build
 markdown: kramdown
 sass:

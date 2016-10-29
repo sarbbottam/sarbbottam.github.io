@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Every image must have alt attribute
 date: 2016-10-27 19:00:00
 categories: Accessibility, HTML, Image

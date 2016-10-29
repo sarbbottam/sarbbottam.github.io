@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Multiple submit buttons and JavaScript
 date: 2015-08-21 17:40:00
 categories: HTML Forms, JavaScript

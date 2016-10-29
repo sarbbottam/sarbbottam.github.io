@@ -1,5 +1,4 @@
 ---
-layout: post
 title: No sound for audio when iPhone connected over Bluethooth
 date: 2015-11-28 13:30:00
 categories: bluetooth, toyota
