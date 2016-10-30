@@ -2,6 +2,7 @@
 title: "text-overflow:ellipsis - Is it worth using?"
 date: 2016-10-29 23:00:00
 categories: Accessibility, HTML, CSS, JavaScript
+image: /images/posts/ellipsis.png
 ---
 
 >Ellipsis is a series of dots that usually indicates an intentional omission of a word,
