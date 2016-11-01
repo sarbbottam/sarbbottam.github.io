@@ -36,7 +36,7 @@ Refer [CodePen example - tab order - confusing](http://codepen.io/sarbbottam/ful
 <p data-height="440" data-theme-id="0" data-slug-hash="amEjaP" data-default-tab="result" data-user="sarbbottam" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/amEjaP/">tab order  - confusing</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-Visually the `tab order` seems 1, 2, 3, 4, 5. In reality, it is 5, 4, 3, 2, 1, to the match the DOM. Refer the HTML section of the [CodePen example - tab order - confusing](http://codepen.io/sarbbottam/amEjaP/).
+Visually the `tab order` seems 1, 2, 3, 4, 5. In reality, it is 5, 4, 3, 2, 1, to the match the DOM. Refer the HTML section of the [CodePen example - tab order - confusing](http://codepen.io/sarbbottam/pen/amEjaP).
 
 **Don't do this.**
 
