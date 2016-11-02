@@ -15,8 +15,6 @@ In print media, usage of ellipsis has been deliberate and deterministic, _withou
 But that's not true for web media. With `text-overflow: ellipsis` style, the author does not have any control over the appearance of the `...`.
 It depends on the available width of the container, at the time of rendering.
 
-And the currently rendered content with `...` might or might not make sense to the reader.
-
 Consider the following sentence, the truncation will depend on your device width.
 <style>
   .sukumar {
