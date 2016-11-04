@@ -16,11 +16,13 @@ collections:
     output: true
     permalink: /blog/:year/:month/:day/:title
   projects:
+  designs:
 
 # pagination
 paginate_path:
   blog: /blog/page/:num/
   project: /project/page/:num/
+  design: /design/page/:num/
 
 defaults:
   -

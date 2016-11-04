@@ -2,5 +2,7 @@
   text: Blog
 - url: /project
   text: Project
+- url: /design
+  text: Design
 - url: /about
   text: About
