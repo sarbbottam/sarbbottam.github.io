@@ -75,7 +75,7 @@ Consider the [CodePen example - Show more/less](http://codepen.io/sarbbottam/ful
 For example, an auto-complete or typeahead widget.
 Focus must remain in the `textbox` as the user is interacting with it.
 
-In scenarios, where you can't shift focus, you would want to utilize `aria live region` to provide feedback to non-sighted users.
+In scenarios, where you can't shift focus, you could use `aria live region`, `aria-activedescendant` to provide feedback to non-sighted users.
 
 Refer the [CodePen example - Typeahead](http://codepen.io/sarbbottam/full/yakYLV/)
 
