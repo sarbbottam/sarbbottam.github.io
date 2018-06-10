@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sarbbottam’s weblog</title>
+    <description>Sarbbottam’s weblog on web accessibility, html, css, javascript, front-end techniques and front-end eco system.</description>
+    <link>https://sarbbottam.github.io/</link>
+    <atom:link href="https://sarbbottam.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 10 Jun 2018 07:58:23 +0000</pubDate>
+    <lastBuildDate>Sun, 10 Jun 2018 07:58:23 +0000</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Raspbian, Apple Bluetooth Keyboard and Trackpad</title>
+        <description>&lt;p&gt;I started with &lt;a href=&quot;https://thepihut.com/blogs/raspberry-pi-tutorials/17841464-bluetooth-installing-and-using-bluetooth-on-the-raspberry-pi&quot;&gt;this post&lt;/a&gt; and was able to connect the Apple Bluetooth Trackpad but not the Apple Bluetooth Keyboard.&lt;/p&gt;
+
+&lt;p&gt;And as part of the steps I have updated the system and installed the bluetooth related utilities.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install bluetooth blueman bluez python-gobject python-gobject-2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then I came across &lt;a href=&quot;https://www.rickwargo.com/2016/03/09/connect-apple-wireless-keyboard-to-raspbian-jessie/&quot;&gt;Connect Apple Wireless Keyboard to Raspbian (Jessie)&lt;/a&gt; and it guided me guided to the success pairing of Apple Bluetooth Keyboard and  Bluetooth Trackpad.&lt;/p&gt;
+
+&lt;p&gt;All I need to do for every RPi start/restart is to restart the apple wireless keyboard, and it automatically gets connected.&lt;/p&gt;
+
+&lt;p&gt;I am using &lt;a href=&quot;https://www.amazon.com/gp/product/B009ZIILLI/ref=oh_aui_detailpage_o00_s00?ie=UTF8&amp;amp;psc=1&quot;&gt;this bluetooth dongle&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Jun 2018 01:00:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2018/06/10/raspbian-apple-bluetooth-keyboard-trackpad</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2018/06/10/raspbian-apple-bluetooth-keyboard-trackpad</guid>
+        
+        
+        <category>Raspbian,</category>
+        
+        <category>RPi,</category>
+        
+        <category>Bluetooth,</category>
+        
+        <category>Apple</category>
+        
+        <category>Keyboard,</category>
+        
+        <category>Trackpad</category>
+        
+      </item>
+    
+      <item>
+        <title>text-overflow:ellipsis - Is it worth using?</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Ellipsis is a series of dots that usually indicates an intentional omission of a word,
+sentence, or whole section from a text without altering its original meaning. &lt;em&gt;- &lt;a href=&quot;https://en.wikipedia.org/wiki/Ellipsis&quot;&gt;Wikipedia&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The usage of ellipsis dates back to 16th century, as suggested by Anne Toner in her book,
+&lt;a href=&quot;https://www.amazon.com/Ellipsis-English-Literature-Signs-Omission/dp/1107073014&quot;&gt;Ellipsis in English Literature: Signs of Omission&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In print media, usage of ellipsis has been deliberate and deterministic, &lt;em&gt;without altering its original meaning&lt;/em&gt;.
+But that’s not true for web media. With &lt;code class=&quot;highlighter-rouge&quot;&gt;text-overflow: ellipsis&lt;/code&gt; style, the author does not have any control over the appearance of the &lt;code class=&quot;highlighter-rouge&quot;&gt;...&lt;/code&gt;.
+It depends on the available width of the container, at the time of rendering.&lt;/p&gt;
+
+&lt;p&gt;Consider the following sentence, the truncation will depend on your device width.&lt;/p&gt;
+&lt;style&gt;
+  .sukumar {
+    font-style: italic;
+    background: #198fff;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+  }
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+&lt;/style&gt;
+
+&lt;p class=&quot;truncate sukumar&quot;&gt;
+Sukumar Ray was an Indian Bengali humorous poet, story writer and playwright who mainly wrote for children.
+His works such as the collection of poems &quot;Aboltabol&quot;, novella &quot;HaJaBaRaLa&quot;, short story collection &quot;Pagla Dashu&quot; and play &quot;Chalachittachanchari&quot; are considered equal in stature to Alice in Wonderland.
+More than 80 years after his death, Ray remains one of the most popular of children's writers in both West Bengal and Bangladesh.
+&lt;/p&gt;
+
+&lt;p&gt;One can argue, that on &lt;code class=&quot;highlighter-rouge&quot;&gt;:hover&lt;/code&gt; the complete content can be displayed as a tooltip or overlay.
+And for screen reader users, the complete text is available, as it only visually truncated.&lt;/p&gt;
+
+&lt;p&gt;Fair enough, but still there are couple of concerns:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;How does the user know that they need to &lt;code class=&quot;highlighter-rouge&quot;&gt;:hover&lt;/code&gt;?&lt;/li&gt;
+  &lt;li&gt;What about touch interface, there is no notion of &lt;code class=&quot;highlighter-rouge&quot;&gt;:hover&lt;/code&gt;?&lt;/li&gt;
+  &lt;li&gt;What about keyboard only user?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;How do we make the information available for all?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I don’t know, I have seen a couple of implementation but … (that’s an intentional ellipsis).&lt;/p&gt;
+
+&lt;h2 id=&quot;implementation---i&quot;&gt;Implementation - I&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;attach a click handler to the ellipsis-fied container&lt;/li&gt;
+  &lt;li&gt;add tabindex=0, so that it can be focused via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press&lt;/li&gt;
+  &lt;li&gt;listen to &lt;code class=&quot;highlighter-rouge&quot;&gt;space&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;enter&lt;/code&gt; press and invoke the click handler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Consider the following example:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p class=&quot;sukumar truncate&quot; id=&quot;implementation-one&quot;&gt;
+Sukumar Ray was an Indian Bengali humorous poet, story writer and playwright who mainly wrote for children.
+His works such as the collection of poems &quot;Aboltabol&quot;, novella &quot;HaJaBaRaLa&quot;, short story collection &quot;Pagla Dashu&quot; and play &quot;Chalachittachanchari&quot; are considered equal in stature to Alice in Wonderland.
+More than 80 years after his death, Ray remains one of the most popular of children's writers in both West Bengal and Bangladesh.
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Does it make sense to make a text content focusable?&lt;/li&gt;
+  &lt;li&gt;Isn’t a focusable textual content confusing for a screen reader user?&lt;/li&gt;
+  &lt;li&gt;Is it a known pattern, that a user would &lt;code class=&quot;highlighter-rouge&quot;&gt;click&lt;/code&gt; when they see ‘…’&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;implementation---ii&quot;&gt;Implementation - II&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;let there be a dedicated “See more” button&lt;/li&gt;
+  &lt;li&gt;toggle the truncation when “See more” is interacted&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Consider the following example:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p class=&quot;sukumar truncate&quot; id=&quot;implementation-two&quot;&gt;
+Sukumar Ray was an Indian Bengali humorous poet, story writer and playwright who mainly wrote for children.
+His works such as the collection of poems &quot;Aboltabol&quot;, novella &quot;HaJaBaRaLa&quot;, short story collection &quot;Pagla Dashu&quot; and play &quot;Chalachittachanchari&quot; are considered equal in stature to Alice in Wonderland.
+More than 80 years after his death, Ray remains one of the most popular of children's writers in both West Bengal and Bangladesh.
+&lt;/p&gt;
+&lt;style&gt;
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: #198fff;
+  cursor: pointer;
+}
+&lt;/style&gt;
+
+&lt;p&gt;&lt;button id=&quot;see-more&quot;&gt;See More&lt;/button&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Is the “See more” button confusing for screen reader user?&lt;/li&gt;
+  &lt;li&gt;What purpose is it serving for screen reader user? The complete text was already available to them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I would stay away from &lt;code class=&quot;highlighter-rouge&quot;&gt;text-overflow:ellipsis&lt;/code&gt; till I find a better solution.&lt;/p&gt;
+
+&lt;script&gt;
+var implementationOne = document.getElementById('implementation-one');
+var implementationTwo = document.getElementById('implementation-two');
+var seeMore = document.getElementById('see-more');
+
+function toggleTruncation(node) {
+  node.classList.toggle('truncate')
+}
+
+implementationOne.addEventListener('click', function(e) {
+  toggleTruncation(this);
+});
+
+implementationOne.addEventListener('keypress', function(e) {
+  if (e.keyCode === 32 || e.keyCode === 13) {
+    toggleTruncation(this);
+  }
+});
+
+seeMore.addEventListener('click', function(e) {
+  if (implementationTwo.classList.contains('truncate')) {
+    this.innerHTML = &quot;See less&quot;
+  } else {
+    this.innerHTML = &quot;See more&quot;
+  }
+  toggleTruncation(implementationTwo);
+});
+&lt;/script&gt;
+
+</description>
+        <pubDate>Sat, 29 Oct 2016 23:00:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/10/29/text-overflow-ellipsis-is-it-worth-using</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/10/29/text-overflow-ellipsis-is-it-worth-using</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>HTML,</category>
+        
+        <category>CSS,</category>
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Every image must have alt attribute</title>
+        <description>&lt;p&gt;Every &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;img&amp;gt;&lt;/code&gt; must have an associated &lt;code class=&quot;highlighter-rouge&quot;&gt;alt&lt;/code&gt; attribute.
+The associated &lt;code class=&quot;highlighter-rouge&quot;&gt;alt&lt;/code&gt; attribute must either have &lt;em&gt;meaningful content&lt;/em&gt; or be &lt;em&gt;empty&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-alt-attribute&quot;&gt;Why &lt;code class=&quot;highlighter-rouge&quot;&gt;alt&lt;/code&gt; attribute?&lt;/h2&gt;
+
+&lt;p&gt;As the name suggests, it’s purpose is to serve as an alternate text. For example, see the below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/does-not-exist&quot; alt=&quot;Terracotta artwork at Jor Bangla temple of Bishnupur, West Bengal, India&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Though the image is not displayed, the reader is aware of the purpose of the image, from the alternate text.&lt;/p&gt;
+
+&lt;p&gt;Screen reader also uses the same information and conveys it to the user.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/vo-captions/img-with-alt-text.png&quot; alt=&quot;&quot; class=&quot;center-block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Without an alt text, if the image is not displayed, the purpose of the image will remain unknown.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/asdf1234ghjk.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Also, without an alt text, screen reader will read out the path of the image.&lt;/p&gt;
+
+&lt;p&gt;The above image is read out as &lt;strong&gt;&lt;em&gt;/asdf1234ghjk.png, image&lt;/em&gt;&lt;/strong&gt; by VoiceOver, which is meaningless.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/vo-captions/img-without-alt-text.png&quot; alt=&quot;&quot; class=&quot;center-block&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;An empty alt attribute would have been a better choice, as screen readers would ignore it completely.&lt;/p&gt;
+
+&lt;h2 id=&quot;when-to-use-empty-alt-attribute&quot;&gt;When to use empty alt attribute?&lt;/h2&gt;
+
+&lt;p&gt;Whenever there is adjacent text content conveying the content or intent of the image, use &lt;code class=&quot;highlighter-rouge&quot;&gt;alt=&quot;&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, profile images, adding the name of the profile as alt text, would just end up in redundant information.
+&lt;a href=&quot;https://www.google.com/#q=less+is+more&quot;&gt;Less is more&lt;/a&gt;, avoid redundant information.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;However, if there are images which have no relationship with the content,
+but just for aesthetics, probably you want to use CSS background images.&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Where possible, decorative images should be provided using CSS background images instead.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;furter-reading&quot;&gt;Furter reading&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.w3.org/WAI/tutorials/images/decorative/&quot;&gt;Decorative Images - WAI Web Accessibility Tutorials&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://webaim.org/techniques/alttext/&quot;&gt;WebAIM: Alternative Text&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 27 Oct 2016 19:00:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/10/27/every-image-must-have-alt-attr</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/10/27/every-image-must-have-alt-attr</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>HTML,</category>
+        
+        <category>Image</category>
+        
+      </item>
+    
+      <item>
+        <title>Focus Reset and Guided Focus Management</title>
+        <description>&lt;p&gt;Focus reset happens when an active (currently focused) element, gets removed form the DOM or the render tree.
+On focus reset, &lt;code class=&quot;highlighter-rouge&quot;&gt;document.activeElement&lt;/code&gt; refers to relative top most &lt;code class=&quot;highlighter-rouge&quot;&gt;node&lt;/code&gt;; i.e. &lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;iframe&lt;/code&gt;,
+leading to an unpleasant user experience for keyboard only users and screen reader users.&lt;/p&gt;
+
+&lt;p&gt;To mitigate the &lt;code class=&quot;highlighter-rouge&quot;&gt;focus reset&lt;/code&gt; problem, one must implement &lt;code class=&quot;highlighter-rouge&quot;&gt;guided focus management&lt;/code&gt;.
+As the name suggests, in &lt;code class=&quot;highlighter-rouge&quot;&gt;guided focus management&lt;/code&gt;, one programmatically focuses the desired HTML element/node.&lt;/p&gt;
+
+&lt;p&gt;For example, when a modal is displayed, the modal container is focused,
+similarly, when a modal is dismissed, the element that had triggered the modal display, is focused.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;When an HTML element/node is focused, screen reader &lt;a href=&quot;#caveats&quot;&gt;generally&lt;/a&gt; reads out the content of the HTML element,
+which serves as a feed back to the non sighted users.&lt;/em&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;focus-reset&quot;&gt;Focus reset&lt;/h2&gt;
+
+&lt;p&gt;Chrome, Firefox, Safari handles focus reset gracefully.
+But in IE 11, on the focus reset, any subsequent tab press will focus the &lt;code class=&quot;highlighter-rouge&quot;&gt;url bar&lt;/code&gt;,
+forcing a keyboard only user to tab through, from the beginning, once again.&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/ZpXKjA/&quot;&gt;CodePen example - Focus Reset&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;370&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;ZpXKjA&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/ZpXKjA/&quot;&gt;Focus Reset&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You might want to try the example with multiple screen readers, Safari/VoiceOver, IE/JAWS, Firefox/NVDA.&lt;/p&gt;
+
+&lt;h2 id=&quot;guided-focus-management&quot;&gt;Guided Focus Management&lt;/h2&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;guided focus management&lt;/code&gt;, the container of the dynamic content is focused.
+So that screen reader can start reading the content of the dynamic container.
+It also serves as a guided context switch. Any subsequent &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press will focus the next focusable element within/after this context.&lt;/p&gt;
+
+&lt;p&gt;Most likely the container is a non-focusable element like &lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;section&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;article&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;span&lt;/code&gt; etc.,
+thus it needs to have &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=-1&lt;/code&gt; attribute, in order to be focused via JavaScript using &lt;code class=&quot;highlighter-rouge&quot;&gt;HTMLElement.focus()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For more on &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=-1&lt;/code&gt; please refer &lt;a href=&quot;/blog/2016/10/14/tab-order-and-tabindex#tabindex-1&quot;&gt;tabindex=-1&lt;/a&gt; section of my earlier post &lt;a href=&quot;/blog/2016/10/14/tab-order-and-tabindex&quot;&gt;tab order and tabindex&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/LRzyBq/&quot;&gt;CodePen example - Guided Focus Management&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;300&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;LRzyBq&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/LRzyBq/&quot;&gt;Guided Focus Management&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Does one always need guided focus management for dynamic content?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Not really, sometimes not required, sometimes you can’t.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;sometimes-not-required&quot;&gt;Sometimes not required&lt;/h3&gt;
+
+&lt;p&gt;Consider the &lt;a href=&quot;http://codepen.io/sarbbottam/full/VKVpjp/&quot;&gt;CodePen example - Guided Focus Management - Sometimes not required&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;450&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;VKVpjp&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/VKVpjp/&quot;&gt;Guided Focus Management - Sometimes not required&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;trigger node utilizes the &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-expanded&lt;/code&gt; attribute, which let’s the screen reader user be aware of the situation.
+As the expanded section immediately follows the trigger node, any subsequent &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; will focus the first focusable element in the expanded section.&lt;/p&gt;
+
+&lt;p&gt;However, if the dynamic content appears before the trigger or replaces the trigger is replaced by the dynamic content, &lt;code class=&quot;highlighter-rouge&quot;&gt;guided focus management&lt;/code&gt; is your best bet.&lt;/p&gt;
+
+&lt;p&gt;Consider the &lt;a href=&quot;http://codepen.io/sarbbottam/full/RRKOPy/&quot;&gt;CodePen example - Show more/less&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;300&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;RRKOPy&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/RRKOPy/&quot;&gt;Show more/less, better user experience&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;sometimes-you-cant&quot;&gt;Sometimes you can’t&lt;/h3&gt;
+
+&lt;p&gt;For example, an auto-complete or typeahead widget.
+Focus must remain in the &lt;code class=&quot;highlighter-rouge&quot;&gt;textbox&lt;/code&gt; as the user is interacting with it.&lt;/p&gt;
+
+&lt;p&gt;In scenarios, where you can’t shift focus, you could use &lt;code class=&quot;highlighter-rouge&quot;&gt;aria live region&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-activedescendant&lt;/code&gt; to provide feedback to non-sighted users.&lt;/p&gt;
+
+&lt;p&gt;Refer the &lt;a href=&quot;http://codepen.io/sarbbottam/full/yakYLV/&quot;&gt;CodePen example - Typeahead&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;720&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;yakYLV&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/yakYLV/&quot;&gt;Guided Focus Management - Sometimes you can't&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;caveats&quot;&gt;Caveats&lt;/h3&gt;
+
+&lt;p&gt;If a container has any of &lt;a href=&quot;https://www.w3.org/TR/wai-aria/roles#landmark_roles&quot;&gt;landmark roles&lt;/a&gt; associated,
+VoiceOver with Safari does not read out the dynamic content, though the container is focused, due to associated &lt;code class=&quot;highlighter-rouge&quot;&gt;landmark role&lt;/code&gt;, at the time of writting this post.&lt;/p&gt;
+
+&lt;p&gt;Please refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/PGydQy/&quot;&gt;CodePen example - Guided Focus Management - role=”main”&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;PGydQy&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/PGydQy/&quot;&gt;Guided Focus Management - role=&quot;main&quot;&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;single-page-application&quot;&gt;Single Page Application&lt;/h3&gt;
+
+&lt;p&gt;Screen reading software, on page load, starts reading the content of the page from the beginning.
+In Single Page Application, there is no page load after the initial one.&lt;/p&gt;
+
+&lt;p&gt;When the contents gets updated with out a page load, screen reading software has no clue by default.
+However utilizing &lt;code class=&quot;highlighter-rouge&quot;&gt;guided focus management&lt;/code&gt; one can explicitly let the screen reading software read out the updates.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Guided focus management is higly desired in Single Page Applications.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 22 Oct 2016 21:00:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/10/22/focus-reset-and-guided-focus-management</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/10/22/focus-reset-and-guided-focus-management</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>HTML,</category>
+        
+        <category>CSS,</category>
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>tab order and tab navigation simulation</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;This is a follow up of &lt;a href=&quot;/blog/2016/10/14/tab-order-and-tabindex&quot;&gt;tab order and tabindex&lt;/a&gt; post, simulating tab order and tab navigation using left and right arrows.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;tab navigation&lt;/code&gt;, one uses&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; for forward navigation&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shift + tab&lt;/code&gt; for backward navigation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s simulate &lt;code class=&quot;highlighter-rouge&quot;&gt;tab navigation&lt;/code&gt; like so:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;right arrow&lt;/code&gt; for forward navigation&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;left arrow&lt;/code&gt; for backward navigation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;In order to simulate &lt;code class=&quot;highlighter-rouge&quot;&gt;tab navigation&lt;/code&gt; we need to first simulate a &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;tab-order-simulation&quot;&gt;tab order simulation&lt;/h2&gt;
+
+&lt;p&gt;Let’s simulate &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; like so:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;traverse the DOM in &lt;code class=&quot;highlighter-rouge&quot;&gt;preorder&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;depth-first traversal&lt;/code&gt; to find the all the &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; elements.
+    &lt;ul&gt;
+      &lt;li&gt;use &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll&quot;&gt;Document.querySelectorAll()&lt;/a&gt;,
+as it returns a list of the elements within the document (using depth-first pre-order traversal of the document’s nodes) that match the specified group of selectors.&lt;/li&gt;
+      &lt;li&gt;use &lt;code class=&quot;highlighter-rouge&quot;&gt;'input:not([type=hidden]), select, textarea, button, a[href], tabindex=0'&lt;/code&gt; as the &lt;code class=&quot;highlighter-rouge&quot;&gt;selector&lt;/code&gt; for &lt;code class=&quot;highlighter-rouge&quot;&gt;querySelectorAll&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;filter the returned &lt;code class=&quot;highlighter-rouge&quot;&gt;node list&lt;/code&gt; against the presence of &lt;code class=&quot;highlighter-rouge&quot;&gt;disabled&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=1&lt;/code&gt; attribute.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;a variable to keep track of the &lt;code class=&quot;highlighter-rouge&quot;&gt;current tabable index&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tab-navigation-simulation&quot;&gt;tab navigation simulation&lt;/h2&gt;
+
+&lt;p&gt;Once the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; is simulated, we can simulate simulate &lt;code class=&quot;highlighter-rouge&quot;&gt;tab navigation&lt;/code&gt; like so:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;whenever right arrow is pressed, increment this index by 1 and focus the corresponding node.
+    &lt;ul&gt;
+      &lt;li&gt;if the value of the index is more then the number of focusable element; reset it to 0.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;whenever left arrow is pressed, decrement this index by 1 and focus the corresponding node.
+    &lt;ul&gt;
+      &lt;li&gt;if the value of the index is less then 0; reset it to the number of focusable element.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;For the sake of simplicity, &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=X&lt;/code&gt; is not considered.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Whenever a &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable element&lt;/code&gt; is either &lt;strong&gt;added&lt;/strong&gt; or &lt;strong&gt;removed&lt;/strong&gt; from the DOM, we need to update the simulated &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; and  corresponding &lt;code class=&quot;highlighter-rouge&quot;&gt;current tabable index&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/NRBBXE/&quot;&gt;CodePen example - tab navigation simulation&lt;/a&gt; to experience simulated tab navigation.&lt;/p&gt;
+
+&lt;p data-height=&quot;530&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;NRBBXE&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/NRBBXE/&quot;&gt;tab navigation simulation&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;For convenience, I have also embedded the corresponding JavaScript below.&lt;/p&gt;
+
+&lt;p data-height=&quot;2350&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;NRBBXE&quot; data-default-tab=&quot;js&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/NRBBXE/&quot;&gt;tab navigation simulation&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Do browsers facilitate &lt;code class=&quot;highlighter-rouge&quot;&gt;tab navigation&lt;/code&gt; in similar fashion?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;I have no idea&lt;/em&gt; :)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 16 Oct 2016 11:20:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/10/16/tab-order-and-tab-navigation-simulation</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/10/16/tab-order-and-tab-navigation-simulation</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>HTML,</category>
+        
+        <category>CSS,</category>
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>tab order and tabindex</title>
+        <description>&lt;p&gt;A keyboard only user, primarily uses &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; key to reach the actionable controls in a web page.
+The order in which &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; elements are focused via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press, is called &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.
+When a user presses &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;, browser focuses the next &lt;code class=&quot;highlighter-rouge&quot;&gt;tabable&lt;/code&gt; element in the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;All &lt;code class=&quot;highlighter-rouge&quot;&gt;tabable&lt;/code&gt; elements are &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; but not all &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; elements are &lt;code class=&quot;highlighter-rouge&quot;&gt;tabable&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;tabable&lt;/em&gt; - an element that can be reached via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;focusable&lt;/em&gt; - an element that can be focused by any means, by &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press, &lt;code class=&quot;highlighter-rouge&quot;&gt;up/down/left/right&lt;/code&gt; press, mouse click or via JavaScript using &lt;code class=&quot;highlighter-rouge&quot;&gt;HTMLElement.focus()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/vXpaPO/&quot;&gt;CodePen example - tab order - 101&lt;/a&gt; to experience &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;380&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;vXpaPO&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/vXpaPO/&quot;&gt;tab order  - 101&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;http://codepen.io/sarbbottam/full/vXpaPO/&quot;&gt;CodePen example - tab order - 101&lt;/a&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;1, 2, 3, 4, 5&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; matches the order in which the &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; elements appear, if the DOM is traversed in &lt;a href=&quot;https://www.w3.org/TR/dom/#concept-tree-order&quot;&gt;preorder, depth-first traversal&lt;/a&gt;.
+&lt;br /&gt;
+In other words, &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; matches the order, in which &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; elements appear in the HTML from start to finish.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Ideally &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; must match the &lt;code class=&quot;highlighter-rouge&quot;&gt;natural visual order&lt;/code&gt;. Otherwise it might lead to a confusing user experience.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/amEjaP/&quot;&gt;CodePen example - tab order - confusing&lt;/a&gt; where &lt;code class=&quot;highlighter-rouge&quot;&gt;natural visual order&lt;/code&gt; does not match the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;440&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;amEjaP&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/amEjaP/&quot;&gt;tab order  - confusing&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Visually the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; seems 1, 2, 3, 4, 5. In reality, it is 5, 4, 3, 2, 1, to the match the DOM. Refer the HTML section of the &lt;a href=&quot;http://codepen.io/sarbbottam/pen/amEjaP&quot;&gt;CodePen example - tab order - confusing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t do this.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you were unfamiliar with the concept of &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;, I hope you got the hang of it, by now.
+If not try accessing the above two examples using &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; and poke around the corresponding code.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-are-the-focusable-elements&quot;&gt;What are the &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; elements?&lt;/h2&gt;
+
+&lt;p&gt;Any intractable HTML element, which does not have a &lt;code class=&quot;highlighter-rouge&quot;&gt;disabled&lt;/code&gt; attribute is &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;input:not([type=hidden])&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;textarea&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;button&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a[href]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;⚠︎︎ However, if an intractable element or its ancestor has &lt;code class=&quot;highlighter-rouge&quot;&gt;display:none&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;visibility:hidden&lt;/code&gt;, it is not &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;💡 If a non-intractable elements can be made intractable, it will be focusable too.
+For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt;, a non-intractable element, can be made intractable by adding &lt;code class=&quot;highlighter-rouge&quot;&gt;contenteditable=&quot;true&quot;&lt;/code&gt; to it, thus making it &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;👊 Using &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex&lt;/code&gt; attribute, one can make a non-intractable elements &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;tabindex&quot;&gt;tabindex&lt;/h2&gt;
+
+&lt;p&gt;As the name suggests, &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex&lt;/code&gt; re-indexes the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; or in other words modifies the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.
+Using &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex&lt;/code&gt; one can&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;take elements out of the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;insert elements in the natural &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;modify the order of elements in the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex&lt;/code&gt; attribute can have any of the following three values&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;2,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;3,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;4,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;; &lt;a href=&quot;https://www.mathsisfun.com/whole-numbers.html&quot;&gt;any whole number&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tabindex-1&quot;&gt;tabindex=-1&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=-1&lt;/code&gt; takes the corresponding &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; element out of the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;An element with &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=-1&lt;/code&gt; attribute can never be reached via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press, but it can be focused via JavaScript using &lt;code class=&quot;highlighter-rouge&quot;&gt;HTMLElement.focus()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;So not all &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; elements are &lt;code class=&quot;highlighter-rouge&quot;&gt;tabable&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/WGrRVO/&quot;&gt;CodePen example - tabindex=-1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;650&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;WGrRVO&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/WGrRVO/&quot;&gt;tabindex=-1&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=-1&lt;/code&gt; could be very useful to enhance the user experience for Rich Internet Applications.&lt;/p&gt;
+
+&lt;p&gt;Whenever there is a UI, where there are bunch of intractable elements, serving similar purpose,
+it is better to take them out of the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;, and focus them programmatically. Similar to the behavior of radio group.&lt;/p&gt;
+
+&lt;p&gt;There are many use cases, where &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=-1&lt;/code&gt; could be useful.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;In short when ever you want any element to be focused only via JavaScript and not via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press, use &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=-1&lt;/code&gt; attribute.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tabindex0&quot;&gt;tabindex=0&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=0&lt;/code&gt; makes an non-intractable element &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; and inserts it in the natural &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;, that is the order in which it appears in the DOM.&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/YGZkmV/&quot;&gt;CodePen example - tabindex=0&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;450&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;YGZkmV&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/YGZkmV/&quot;&gt;tabindex=0&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;em&gt;I had been considering &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=0&lt;/code&gt; a great utility, until recently.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s consider that there is &lt;em&gt;clickable&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt;. And we want this &lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt; to be operable via keyboard.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First we have to add&lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=0&lt;/code&gt; to make it &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt;, so that it can be reached via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; press.&lt;/li&gt;
+  &lt;li&gt;Then we have to listen to &lt;code class=&quot;highlighter-rouge&quot;&gt;enter/space&lt;/code&gt; press on the &lt;code class=&quot;highlighter-rouge&quot;&gt;div&lt;/code&gt; and execute the &lt;code class=&quot;highlighter-rouge&quot;&gt;click&lt;/code&gt; handler.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;However, if a &lt;code class=&quot;highlighter-rouge&quot;&gt;button&lt;/code&gt; was used, not only it would have been &lt;code class=&quot;highlighter-rouge&quot;&gt;focusable&lt;/code&gt; by default,
+but browser would have triggered a &lt;code class=&quot;highlighter-rouge&quot;&gt;click&lt;/code&gt; event on &lt;code class=&quot;highlighter-rouge&quot;&gt;enter/space&lt;/code&gt; press.&lt;/p&gt;
+
+&lt;p&gt;Why to write so much extra code? &lt;a href=&quot;https://www.google.com/#q=less+is+more&quot;&gt;Less is more&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Please refer the &lt;a href=&quot;http://codepen.io/sarbbottam/full/vXdxPm/&quot;&gt;CodePen example - why tabindex=0&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;vXdxPm&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/vXdxPm/&quot;&gt;Why tabindex=0?&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;tabindexx&quot;&gt;tabindex=X&lt;/h3&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;2,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;3,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;4,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; etc.; i.e. a &lt;a href=&quot;https://www.mathsisfun.com/whole-numbers.html&quot;&gt;whole number&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It modifies the natural &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t use it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Seriously, don’t use it, as it modifies (rather screws up) the natural &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; it will challenge the user expectation.&lt;/p&gt;
+
+&lt;p&gt;Please refer the &lt;a href=&quot;http://codepen.io/sarbbottam/full/ozrrjx/&quot;&gt;CodePen example - why tabindex=X&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;350&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;ozrrjx&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/ozrrjx/&quot;&gt;tabindex=X&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Visually the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt; seems 1, 2, 3, 4, 5. In reality, it is 5, 1, 4, 2, 3, due to the &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=X&lt;/code&gt;. Refer the HTML section of the &lt;a href=&quot;http://codepen.io/sarbbottam/pen/ozrrjx/&quot;&gt;CodePen example - why tabindex=X&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Don’t alter the natural visual &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You might also want to take a look at &lt;a href=&quot;/blog/2016/10/16/tab-order-and-tab-navigation-simulation&quot;&gt;tab order and tab navigation simulation&lt;/a&gt; post.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 14 Oct 2016 13:10:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/10/14/tab-order-and-tabindex</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/10/14/tab-order-and-tabindex</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>HTML,</category>
+        
+        <category>CSS,</category>
+        
+        <category>JavaScript</category>
+        
+      </item>
+    
+      <item>
+        <title>Keyboard Accessibility and Lost Focus</title>
+        <description>&lt;p&gt;Visual indicator is must for a keyboard user, to identify an active element, so that the user can press the corresponding desired keys, to interact with the active element.&lt;/p&gt;
+
+&lt;p&gt;For example,&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pressing &lt;code class=&quot;highlighter-rouge&quot;&gt;space&lt;/code&gt; on a &lt;code class=&quot;highlighter-rouge&quot;&gt;checkbox&lt;/code&gt; toggles the &lt;code class=&quot;highlighter-rouge&quot;&gt;checked&lt;/code&gt; status&lt;/li&gt;
+  &lt;li&gt;pressing down arrow on a &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt; displays the &lt;code class=&quot;highlighter-rouge&quot;&gt;options&lt;/code&gt; list&lt;/li&gt;
+  &lt;li&gt;pressing &lt;code class=&quot;highlighter-rouge&quot;&gt;space/enter&lt;/code&gt; on a button activates it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Without a visual indicator a keyboard only user has no clue to identify the active element.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;A keyboard user, uses &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; to navigate to the focusable elements in the UI.
+A keyboard user, may also use up/down/left/right arrow keys for navigating between groups or widgets, for example, radio buttons, tab panel, suggestions in a typeahead etc.&lt;/p&gt;
+
+&lt;p&gt;When a user presses &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;, browser focuses the next focusable element, in the tab order.
+By default browsers highlights any focusable element, with a default focus indicator, when it is focused.&lt;/p&gt;
+
+&lt;p&gt;But sometimes the default focus indicator is suppressed, via &lt;code class=&quot;highlighter-rouge&quot;&gt;:focus {outline: none}&lt;/code&gt;, leading to an inaccessible UI for a keyboard only user.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Would you use &lt;code class=&quot;highlighter-rouge&quot;&gt;* {cursor: none}&lt;/code&gt;? Why &lt;code class=&quot;highlighter-rouge&quot;&gt;:focus {outline: none}&lt;/code&gt; then?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Consider focus indicator for a “keyboard only” user is analogous to mouse pointer/hover indicator for a “mouse only” user.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you want to suppress the default focus indicator, please compensate with some visually distinguishable style.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I hope by now you have understood the importance of visual focus indicator. If not, keep reading and try out the examples.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The example are targeted for non-touch interactions, to emphasize keyboard accessibility.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;why-visual-focus-indicator-is-so-important&quot;&gt;Why visual focus indicator is so important?&lt;/h2&gt;
+
+&lt;p&gt;Let’s imagine a hypothetical situation, where mouse (and related input devices, for example trackpad) is functional, but the mouse pointer is not visible.
+Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/WGAGXZ/&quot;&gt;CodePen example - No mouse pointer - No hover effect&lt;/a&gt;, for the above stated hypothetical situation. Can you click the “Click me” button at &lt;a href=&quot;http://codepen.io/sarbbottam/full/WGAGXZ/&quot;&gt;CodePen example - No mouse pointer - No hover effect&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p data-height=&quot;650&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;WGAGXZ&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/WGAGXZ/&quot;&gt;No mouse pointer - No hover effect&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;I could not click the “Click me” button.&lt;/strong&gt;
+I could not figure out, if the mouse pointer is over the button.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;You can resize the window to approximately guess the mouse pointer, but that’s an awful user experience.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;:hover&lt;/code&gt; style might have been helpful.
+Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/mAVAXQ/&quot;&gt;CodePen example - No mouse pointer - But hover effect&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;650&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;mAVAXQ&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/mAVAXQ/&quot;&gt;No mouse pointer - But hover effect&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Though it has not created a great user experience, but much better than the previous example. I was able to click the “Click me” button.&lt;/p&gt;
+
+&lt;p&gt;As stated earlier, a keyboard only user, uses &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; (primarily) to navigate between focusable elements and a focus indicator identifies  the active element.&lt;/p&gt;
+
+&lt;p&gt;Can you navigate to “Click me” button via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;, and activate it by pressing &lt;code class=&quot;highlighter-rouge&quot;&gt;space/enter&lt;/code&gt; at &lt;a href=&quot;http://codepen.io/sarbbottam/full/JRGRqv/&quot;&gt;CodePen example - No mouse pointer - No Hover effect  - No Focus Indicator&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p data-height=&quot;760&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;JRGRqv&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/JRGRqv/&quot;&gt;No mouse pointer - No Hover effect  - No Focus Indicator&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;There is no easy way, but to try back and forth, and guess when the “button” is focused.&lt;/strong&gt;
+Imagine when there are several elements. One has to keep a mental map and order of the focusable elements. It can be tedious and not a good user experience.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Make sure any active element is clearly distinguishable.&lt;/strong&gt; Good to have :focus &amp;amp; :hover style go hand in hand.&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/XjXjLz/&quot;&gt;CodePen example - :hover and :focus goes hand in hand&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;700&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;XjXjLz&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/XjXjLz/&quot;&gt;:hover and :focus goes hand in hand&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;lost-focus&quot;&gt;Lost focus&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;When ever the active element can not be identified, it results in lost focus.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So far we have seen “Lost focus” happens when there is no focus indicator, but lost focus can also happen&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;when background and focus indicator color is same&lt;/li&gt;
+  &lt;li&gt;when invisible elements are focused&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;non-distinguishable-focus-indicator&quot;&gt;Non distinguishable focus indicator&lt;/h3&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/yaJXkx/&quot;&gt;CodePen example - non distinguishable focus indicator in chrome/safari&lt;/a&gt;, the default focus indicator is not distinguishable in Chrome/Safari&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;yaJXkx&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/yaJXkx/&quot;&gt;non distinguishable focus indicator in chrome/safari&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;It would be better add a custom focus indicator in such scenario, refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/YGxYpa/&quot;&gt;CodePen example - custom focus indicator&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;YGxYpa&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/YGxYpa/&quot;&gt;custom focus indicator&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;invisible-focusable-elements&quot;&gt;Invisible focusable elements&lt;/h3&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/LRjZoB/&quot;&gt;Codepen example - Invisible focusable element&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;LRjZoB&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/LRjZoB/&quot;&gt;Invisible focusable elements&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Though the intermediate buttons are not visible they are focusable and thus reachable via &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;, resulting in lost focus.&lt;/p&gt;
+
+&lt;p&gt;If you want to hide an element use &lt;code class=&quot;highlighter-rouge&quot;&gt;display:none&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;visibility:hidden&lt;/code&gt;,
+so that the elements are not only invisible, but also removed from the tab order, and can not be focused.&lt;/p&gt;
+
+&lt;p&gt;Refer &lt;a href=&quot;http://codepen.io/sarbbottam/full/mArXyY/&quot;&gt;Codepen example - No Invisible focusable element&lt;/a&gt;&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;mArXyY&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/mArXyY/&quot;&gt;No invisible focusable elements&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;em&gt;When ever there is an invisible focused element, it results in lost focus.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Avoid lost focus and enhance users’ experience.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 29 Sep 2016 16:50:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/09/29/keyboard-accessibility-and-lost-focus</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/09/29/keyboard-accessibility-and-lost-focus</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>CSS</category>
+        
+      </item>
+    
+      <item>
+        <title>Show more/less actionable list items</title>
+        <description>&lt;p&gt;Hide the extra items completely, if you mean it.
+Otherwise they might be avialable to keyboard only and screen reader users, even though not available for mouse only users.&lt;/p&gt;
+
+&lt;h2 id=&quot;codepen-example---show-moreless-bad-user-experience&quot;&gt;CodePen example - Show more/less, bad user experience&lt;/h2&gt;
+
+&lt;p&gt;There are 10 links as line items, with mouse only first 5 are available(accessible) initially.
+The remaining are available only, if the use clicks the “Show more” button.&lt;/p&gt;
+
+&lt;p&gt;How ever that’s not true for a keyboard user, using &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;, or for a screen reader user.
+In the below example all the 10 links are available to the user. Try accessing the below UI using &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;aZpMPN&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/aZpMPN/&quot;&gt;Show more/less  - bad example&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Show more&lt;/code&gt; button is not only meaningless, as it appears after the user has navigated through all the links, but confusing too.&lt;/p&gt;
+
+&lt;p&gt;One could add, &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-hidden=&quot;true&quot;&lt;/code&gt; attribute to the button, so that screen reading software, ignores it.
+But it does not fix the behavior for keyboard only user.
+More over, it is not an optimal user experience for a keyboard user, they have to pass through all the links, when accessing a web document, in top down fashion.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;A better experience would be to wrap the &lt;em&gt;more&lt;/em&gt; items in a &lt;code class=&quot;highlighter-rouge&quot;&gt;container&lt;/code&gt;, and set its &lt;code class=&quot;highlighter-rouge&quot;&gt;display&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;none&lt;/code&gt; initially.
+And updated the &lt;code class=&quot;highlighter-rouge&quot;&gt;display&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;none&lt;/code&gt; on demand, i.e. when the corresponding button is interacted.&lt;/p&gt;
+
+&lt;p&gt;Also focus the &lt;code class=&quot;highlighter-rouge&quot;&gt;container&lt;/code&gt;, so the screen reading software can start reading out its the content.&lt;/p&gt;
+
+&lt;p&gt;Try the following example.&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;RRKOPy&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/RRKOPy/&quot;&gt;Show more/less, better user experience&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 26 Jun 2016 10:30:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/06/26/show-more-show-less-actionable-list-items</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/06/26/show-more-show-less-actionable-list-items</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>CSS</category>
+        
+      </item>
+    
+      <item>
+        <title>Display focus-indicator for styled radio and checkbox</title>
+        <description>&lt;p&gt;When styling &lt;code class=&quot;highlighter-rouge&quot;&gt;radio buttons&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;checkboxes&lt;/code&gt; by hiding them visually
+and using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements&quot;&gt;pseudo-elements&lt;/a&gt;,
+along with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/pseudo-classes&quot;&gt;pseudo-classes&lt;/a&gt;,
+&lt;em&gt;please ensure to add custom focus indicator&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, a user accessing the user interface via keyboard, has no idea, what is the active element/field.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;codepen-example---styled-radio--checkbox-without-focus-indicator&quot;&gt;CodePen example - Styled radio &amp;amp; checkbox without focus-indicator&lt;/h3&gt;
+
+&lt;p&gt;Try accessing the below example using keyboard; &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;space&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;enter&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;up/down/left/right&lt;/code&gt; arrow keys.&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;EyZENx&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/EyZENx/&quot;&gt;Styled radio &amp;amp; checkbox w/o focus-indicator&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Was that difficult?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;With respect to the above example, add a custom focus indicator to the &lt;code class=&quot;highlighter-rouge&quot;&gt;pseudo-element&lt;/code&gt;, when the field is focused.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;checkbox&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:focus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;radio&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:focus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;/*
+  add a style that visually distinguishes it from others
+  border: -
+  box-shadow: -
+  ...
+  better to have a consistent treatment across the page.
+  */&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;outline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#50e3c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Irrespective of the approach, please ensure any active element is visually distinguishable from others.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;codepen-example---styled-radio--checkbox-with-focus-indicator&quot;&gt;CodePen example - Styled radio &amp;amp; checkbox with focus-indicator&lt;/h3&gt;
+
+&lt;p&gt;Try accessing the example using keyboard; &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;space&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;enter&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;up/down/left/right&lt;/code&gt; arrow keys.&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;KMaogG&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/KMaogG/&quot;&gt;Styled radio &amp;amp; checkbox w/ focus-indicator&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It’s much better than the previous example.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If using, native HTML elements as is, you get it (focus outline) for free.&lt;/p&gt;
+
+&lt;h3 id=&quot;codepen-example---unstyled-radio--checkbox-default-focus-indicator&quot;&gt;CodePen example - Unstyled radio &amp;amp; checkbox (default focus-indicator)&lt;/h3&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;oLBqYL&quot; data-default-tab=&quot;result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/oLBqYL/&quot;&gt;Unstyled radio &amp;amp; checkbox (default focus-indicator)&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;protip&quot;&gt;Protip&lt;/h2&gt;
+
+&lt;p&gt;Never use &lt;code class=&quot;highlighter-rouge&quot;&gt;display: none&lt;/code&gt;; any element or its ancestor with &lt;code class=&quot;highlighter-rouge&quot;&gt;display&lt;/code&gt; set to &lt;code class=&quot;highlighter-rouge&quot;&gt;none&lt;/code&gt;, will not be reachable via keyboard.
+It is out of the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab order&lt;/code&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 25 Jun 2016 10:30:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/06/25/display-focus-indicator-for-styled-radio-and-checkbox</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/06/25/display-focus-indicator-for-styled-radio-and-checkbox</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>CSS</category>
+        
+      </item>
+    
+      <item>
+        <title>Focus Indicator - Browser(Chrome) Extension</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=r-AYcPC-Dsg&quot; title=&quot;Screencast - Focus Indicator Chrome extension in action&quot;&gt;
+  &lt;img src=&quot;http://i.imgur.com/qqEXCal.png&quot; alt=&quot;Screencast - Focus Indicator Chrome extension in action&quot; style=&quot;display: block; max-width:100%; margin: auto&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;what-is-the-problem&quot;&gt;What is the problem?&lt;/h2&gt;
+
+&lt;p&gt;While accessing any digital interface, focus indicator, is very important.
+Focus indicator highlights the active intractable component or control.
+It is true for web pages also.&lt;/p&gt;
+
+&lt;p&gt;By default, every browser highlights the active intractable element.
+But sometimes, web developers, suppress it using &lt;code class=&quot;highlighter-rouge&quot;&gt;outline: none&lt;/code&gt;, which creates the problem.&lt;/p&gt;
+
+&lt;p&gt;For example, when accessing &lt;a href=&quot;http://timesofindia.indiatimes.com/&quot;&gt;Times of India&lt;/a&gt;, a leading Indian daily, via keyboard,
+active intractable element is not visually distinguishable.&lt;/p&gt;
+
+&lt;p&gt;I have no intension to shame or criticize &lt;a href=&quot;http://timesofindia.indiatimes.com/&quot;&gt;Times of India&lt;/a&gt;, it is just an example.
+There are tons of other examples, across the web.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/search?l=css&amp;amp;q=outline%3A+none&amp;amp;type=Code&amp;amp;utf8=%E2%9C%93&quot;&gt;Searching for &lt;code class=&quot;highlighter-rouge&quot;&gt;outline: none&lt;/code&gt; in Github displays hundreds of &lt;code class=&quot;highlighter-rouge&quot;&gt;outline: none&lt;/code&gt;’s existence.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;focus-indicatorhttpschromegooglecomwebstoredetailfocus-indicatorheeoeadndnhebmfebjccbhmccmaoedlf-to-the-rescue&quot;&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/focus-indicator/heeoeadndnhebmfebjccbhmccmaoedlf&quot;&gt;Focus Indicator&lt;/a&gt; to the rescue.&lt;/h2&gt;
+
+&lt;p&gt;As the name suggests, ‘Focus Indicator’ extension highlights the active intractable element in a webpage.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/pck8LJW.png&quot; alt=&quot;Times of India logo highlighted by Focus Indicator&quot; style=&quot;display: block; max-width:100%; margin: auto&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you prefer accessing web pages via keyboard, I hope this extension will be helpful.&lt;/p&gt;
+
+&lt;h2 id=&quot;disclaimer&quot;&gt;Disclaimer&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The idea behind this extension was to help me at my Job&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As a part of my job, I started auditing web interface w.r.t. accessibility.
+Keyboard operability is one of the key aspect of accessibility.&lt;/p&gt;
+
+&lt;p&gt;If there are no focus indicators for active intractable elements, for sure, it’s an issue.
+But I need to also verify, that the intractable elements are operable too (considering the focus indicator issue does not exist), and report accordingly.&lt;/p&gt;
+
+&lt;p&gt;In the lack of focus indicator, I had been very tedious for me to verify, if an intractable element is operable via keyboard.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;Enforce outline (-ve) on the active element.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:focus&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;outline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#50e3c2&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;outline-offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-2px&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;evolution&quot;&gt;Evolution&lt;/h2&gt;
+
+&lt;p&gt;I wish I knew about &lt;code class=&quot;highlighter-rouge&quot;&gt;outline-offset&lt;/code&gt; and it’s &lt;code class=&quot;highlighter-rouge&quot;&gt;-ve&lt;/code&gt; value.&lt;/p&gt;
+
+&lt;h3 id=&quot;initial-approach&quot;&gt;Initial approach&lt;/h3&gt;
+
+&lt;p&gt;I would open up JavaScript console and look for the &lt;code class=&quot;highlighter-rouge&quot;&gt;document.activeElement&lt;/code&gt;; but that would result in resetting the tab order.
+I had to start tab-ing from the beginning again.&lt;/p&gt;
+
+&lt;h3 id=&quot;second-pass&quot;&gt;Second pass&lt;/h3&gt;
+
+&lt;p&gt;Then I used the following snippet&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'focus'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;activeElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It was better than the previous approach, but logging the markup was not of great help.
+From the markup, it was not clear (many a time), what visual co-ordinate it represented.
+In order to co-relate the markup, I had to access the &lt;code class=&quot;highlighter-rouge&quot;&gt;dev tool&lt;/code&gt; and that would reset the tab order.
+I had to start tab-ing from the beginning again.&lt;/p&gt;
+
+&lt;h3 id=&quot;then-&quot;&gt;Then …&lt;/h3&gt;
+
+&lt;p&gt;Why not add a border? &lt;code class=&quot;highlighter-rouge&quot;&gt;border: 1px solid red&lt;/code&gt;, good old way debugging layout.&lt;/p&gt;
+
+&lt;p&gt;Yep, that’s what I used, along with &lt;code class=&quot;highlighter-rouge&quot;&gt;alert&lt;/code&gt; for debugging, when there were no dev tools.&lt;/p&gt;
+
+&lt;p&gt;But &lt;code class=&quot;highlighter-rouge&quot;&gt;border&lt;/code&gt; was impacting the layout and was not always distinguishable, due to foreground and background color.&lt;/p&gt;
+
+&lt;p&gt;So, I used &lt;code class=&quot;highlighter-rouge&quot;&gt;box-shadow&lt;/code&gt;, it was better, but did not work for all the elements.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;box-shadow&lt;/code&gt; was not visible for, the elements that were enclosed within another, without any spacing and &lt;code class=&quot;highlighter-rouge&quot;&gt;overflow: hidden&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;QEKyKG&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/QEKyKG/&quot;&gt;box-shadow&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;outline&lt;/code&gt; had similar issue.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Then, I used, &lt;code class=&quot;highlighter-rouge&quot;&gt;box-shadow: inset&lt;/code&gt;, only to find out the reverse situation.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;box-shadow: inset&lt;/code&gt; was not visible, for the elements that contained other elements, without any spacing.&lt;/p&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;gMwPwO&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;sarbbottam&quot; data-embed-version=&quot;2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/sarbbottam/pen/gMwPwO/&quot;&gt;box-shadow: inset&lt;/a&gt; by Sarbbottam Bandyopadhyay (&lt;a href=&quot;http://codepen.io/sarbbottam&quot;&gt;@sarbbottam&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;how-about-absolutely-positioned-element&quot;&gt;How about &lt;code class=&quot;highlighter-rouge&quot;&gt;absolute&lt;/code&gt;ly &lt;code class=&quot;highlighter-rouge&quot;&gt;position&lt;/code&gt;ed element&lt;/h3&gt;
+
+&lt;p&gt;Use an &lt;code class=&quot;highlighter-rouge&quot;&gt;absolute&lt;/code&gt;ly &lt;code class=&quot;highlighter-rouge&quot;&gt;position&lt;/code&gt;ed element, update it’s &lt;code class=&quot;highlighter-rouge&quot;&gt;dimensions&lt;/code&gt; to that of the active element and &lt;code class=&quot;highlighter-rouge&quot;&gt;position&lt;/code&gt; is over the active element?&lt;/p&gt;
+
+&lt;p&gt;I was about to pat myself, but noticed, it broke the mouse interaction.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Things were already becoming complex.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Why or rather how?
+Well it was stacked above the active element and prevented any mouse event to pass through.
+Thanks to &lt;code class=&quot;highlighter-rouge&quot;&gt;pointer-events: none&lt;/code&gt;, it saved the day.&lt;/p&gt;
+
+&lt;p&gt;So far so good!&lt;/p&gt;
+
+&lt;h2 id=&quot;updates-jun-18-2016&quot;&gt;Updates (Jun 18, 2016)&lt;/h2&gt;
+
+&lt;p&gt;I published the extension and &lt;a href=&quot;https://twitter.com/sarbbottam/status/744005122104131584&quot;&gt;shared it on Twitter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am thankful to &lt;a href=&quot;https://twitter.com/ted_drake&quot;&gt;Ted Drake&lt;/a&gt; &amp;amp; &lt;a href=&quot;https://twitter.com/thierrykoblentz&quot;&gt;Thierry Koblentz&lt;/a&gt; for their feedback and suggestions.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/ted_drake/status/744110815117213696&quot;&gt;Ted appreciated the extension, and emphasized about &lt;code class=&quot;highlighter-rouge&quot;&gt;outline&lt;/code&gt;&lt;/a&gt;.
+On replying, that it behaves similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;box-shadow&lt;/code&gt;, &lt;a href=&quot;https://twitter.com/thierrykoblentz/status/744233653333463042&quot;&gt;Thierry suggested -ve outline-offset&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-ve outline-offset&lt;/code&gt; worked, but I was not satisfied as it affected readability.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/jTyiOya.png&quot; alt=&quot;-ve outline overlapping the content&quot; style=&quot;display: block; max-width:100%; margin: auto&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I addressed it, then noticed something else. I addressed that, and noticed something else. It was turning in to never-ending rabbit hole.&lt;/p&gt;
+
+&lt;p&gt;So, I followed Thierry’s suggestion and settled with &lt;code class=&quot;highlighter-rouge&quot;&gt;-ve outline-offset&lt;/code&gt;. You can find the complete conversation &lt;a href=&quot;https://twitter.com/sarbbottam/status/744005122104131584&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/sarbbottam/focus-indicator/blob/master/src/style.css#L1-L4&quot;&gt;Though the eventual source code is just 2 lines&lt;/a&gt;, I learnt a lot.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/focus-indicator/heeoeadndnhebmfebjccbhmccmaoedlf&quot;&gt;Focus Indicator&lt;/a&gt; is in active development.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Should you find any be issue, &lt;a href=&quot;https://github.com/sarbbottam/focus-indicator/issues&quot;&gt;please report it&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Should you want to make it better, please raise a &lt;a href=&quot;https://github.com/sarbbottam/focus-indicator/compare&quot;&gt;pull request&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have found it useful please share it with others.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Jun 2016 17:30:00 +0000</pubDate>
+        <link>https://sarbbottam.github.io/blog/2016/06/17/focus-indicator-browser-extension</link>
+        <guid isPermaLink="true">https://sarbbottam.github.io/blog/2016/06/17/focus-indicator-browser-extension</guid>
+        
+        
+        <category>Accessibility,</category>
+        
+        <category>JavaScript,</category>
+        
+        <category>Browser</category>
+        
+        <category>Extension</category>
+        
+      </item>
+    
+  </channel>
+</rss>

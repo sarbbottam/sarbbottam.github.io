@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+      
+      Sarbbottam’s weblog - Multiple submit buttons and JavaScript 
+    </title>
+    <!-- Begin Jekyll SEO tag v2.0.0 -->
+<meta property="og:title" content="Multiple submit buttons and JavaScript" />
+<meta name="description" content="Two sets of action can happen as per users’ desire, guided by the respective submit buttons. Might be a confusing user experience for a form with input fields, but helpful for a form with out any input field. May be also helpful, for a form with only one input field." />
+<meta property="og:description" content="Two sets of action can happen as per users’ desire, guided by the respective submit buttons. Might be a confusing user experience for a form with input fields, but helpful for a form with out any input field. May be also helpful, for a form with only one input field." />
+<link rel="canonical" href="https://sarbbottam.github.io/blog/2015/08/21/multiple-submit-buttons-and-javascript" />
+<meta property="og:url" content="https://sarbbottam.github.io/blog/2015/08/21/multiple-submit-buttons-and-javascript" />
+<meta property="og:site_name" content="Sarbbottam’s weblog" />
+<meta property="og:image" content="https://sarbbottam.github.io/images/sarbbottam.jpeg" />
+<meta property="og:image:height" content="100" />
+<meta property="og:image:width" content="100" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-21T17:40:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@sarbbottam" />
+<meta name="twitter:creator" content="@sarbbottam" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Multiple submit buttons and JavaScript",
+"image": "https://sarbbottam.github.io/images/sarbbottam.jpeg",
+"datePublished": "2015-08-21T17:40:00+00:00",
+"description": "Two sets of action can happen as per users’ desire, guided by the respective submit buttons. Might be a confusing user experience for a form with input fields, but helpful for a form with out any input field. May be also helpful, for a form with only one input field.",
+"url": "https://sarbbottam.github.io/blog/2015/08/21/multiple-submit-buttons-and-javascript"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/">Sarbbottam’s weblog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a href="/">Blog</a>
+        
+          <a href="/project">Project</a>
+        
+          <a href="/design">Design</a>
+        
+          <a href="/about">About</a>
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+      
+      <h1>Multiple submit buttons and JavaScript</h1>
+      <div class="post">
+
+  <p class="post-meta">
+    Aug 21, 2015
+     -
+    
+    
+      10 mins read
+    
+  </p>
+
+  <article class="post-content">
+  <p>Two sets of action can happen as per users’ desire, guided by the respective <code class="highlighter-rouge">submit buttons</code>.
+Might be a confusing user experience for a <code class="highlighter-rouge">form</code> <em>with</em> <code class="highlighter-rouge">input fields</code>, but helpful for a <code class="highlighter-rouge">form</code> <em>with out any</em> <code class="highlighter-rouge">input field</code>.
+May be also helpful, for a <code class="highlighter-rouge">form</code> <em>with only one</em> <code class="highlighter-rouge">input field</code>.</p>
+
+<p>An example would be, send text message or make a voice call to the users’ phone number for:</p>
+
+<ul>
+  <li>Sending One Time Password</li>
+  <li>Verifying the user provided phone number.</li>
+</ul>
+
+<p><img src="http://i.imgur.com/bSaToGv.png" alt="SMS/Call form" style="width: 300px; display: block;" /></p>
+
+<p>For One Time Password, phone number is already associated with users’ account, so the UI could be potentially <em>without any</em> <code class="highlighter-rouge">input field</code>.
+<br />
+For verifying the user provided phone number, it could be part of the same UI or spread across two different UI.</p>
+
+<p>The <code class="highlighter-rouge">action</code> handler can detect which <code class="highlighter-rouge">submit button</code> has been <code class="highlighter-rouge">clicked</code> from the <code class="highlighter-rouge">form data</code>, if the form was submitted via <code class="highlighter-rouge">POST</code> or from the <code class="highlighter-rouge">query parameters</code>, if the form was submitted via <code class="highlighter-rouge">GET</code> method.</p>
+
+<p>Here is a working (dumb) example of the above-mentioned scenario, using <code class="highlighter-rouge">GET</code> method to greet users in Spanish or in French.</p>
+<p data-height="280" data-theme-id="0" data-slug-hash="QbXNzz" data-default-tab="result" data-user="sarbbottam" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/QbXNzz/">greet</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<p><code class="highlighter-rouge">Form data</code> that would be passed to the <code class="highlighter-rouge">action</code> handler, depends on the user interaction.
+<br />
+Below table depicts the <code class="highlighter-rouge">user action</code> vs <code class="highlighter-rouge">form data</code> with respect to the above (dumb) example.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>user action</th>
+      <th>form data passed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>clicks on <strong>Hola</strong> button</td>
+      <td>name=Sarbbottam&amp;greeting=<strong>Hola</strong></td>
+    </tr>
+    <tr>
+      <td>clicks on <strong>Bonjour</strong> button</td>
+      <td>name=Sarbbottam&amp;greeting=<strong>Bonjour</strong></td>
+    </tr>
+    <tr>
+      <td>tabs to the <strong>Hola</strong> button and presses <code class="highlighter-rouge">enter</code> in the physical keyboard</td>
+      <td>name=Sarbbottam&amp;greeting=<strong>Hola</strong></td>
+    </tr>
+    <tr>
+      <td>tabs to the <strong>Bonjour</strong> button and presses <code class="highlighter-rouge">enter</code> in the physical keyboard</td>
+      <td>name=Sarbbottam&amp;greeting=<strong>Bonjour</strong></td>
+    </tr>
+    <tr>
+      <td>while being in the <code class="highlighter-rouge">name field</code> (editable fields), presses <code class="highlighter-rouge">enter</code> in the physical keyboard or <code class="highlighter-rouge">Go</code> in the soft keyboard<sup>†</sup></td>
+      <td>name=Sarbbottam&amp;greeting=<strong>Hola</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><sup>†</sup> <em>Pressing/tapping the <code class="highlighter-rouge">enter/Go</code>, triggers <code class="highlighter-rouge">click event</code> on the <code class="highlighter-rouge">first submit button</code> (the submit button that appears first in the DOM).</em></p>
+
+<hr />
+
+<h2 id="javascript-and-form-submit">JavaScript and form submit</h2>
+
+<p>Things get interesting with introduction of JavaScript.
+You might want to perform certain actions before <code class="highlighter-rouge">submiting</code> the <code class="highlighter-rouge">form</code>.</p>
+
+<p>For example:</p>
+
+<ul>
+  <li>Fire beacon with the <code class="highlighter-rouge">value</code> of the <code class="highlighter-rouge">submit button</code> clicked, to the analytic system.</li>
+  <li>Modify the appearence of the <code class="highlighter-rouge">submit button</code> clicked</li>
+</ul>
+
+<p>To address the above use cases, we could attach <code class="highlighter-rouge">click event</code> listeners to each <code class="highlighter-rouge">submit buttons</code> and on <code class="highlighter-rouge">click event</code> perform the following actions:</p>
+
+<ul>
+  <li>prevent the <code class="highlighter-rouge">default behavior</code> and stop the <code class="highlighter-rouge">event propagation</code></li>
+  <li>fire beacon</li>
+  <li>submit the form via <code class="highlighter-rouge">form.submit()</code> method.</li>
+</ul>
+
+<p><strong>Simple, isn’t it?</strong>
+<br />
+Not really, in the above scenario the <code class="highlighter-rouge">submit button name/value</code> will not be passed to the form <code class="highlighter-rouge">action</code> handler.
+<br />
+Please refer the below example.</p>
+
+<p data-height="280" data-theme-id="0" data-slug-hash="jLxKi" data-default-tab="result" data-user="sarbbottam" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/full/jLxKi/">greet-user</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<blockquote>
+  <p>Why the <code class="highlighter-rouge">submit button name/value</code> did not get pass to the <code class="highlighter-rouge">action</code> handler?</p>
+</blockquote>
+
+<p>The <code class="highlighter-rouge">form</code> is not being submitted in the usual manner but via <code class="highlighter-rouge">form.submit()</code>.
+As we are acting upon the <code class="highlighter-rouge">click event</code> of the <code class="highlighter-rouge">submit buttons</code> and not on the <code class="highlighter-rouge">form submit event</code>, the <code class="highlighter-rouge">submit button name/value</code> is not part of the <code class="highlighter-rouge">serialized form data</code>.</p>
+
+<blockquote>
+  <p>What could we do to address this problem?</p>
+</blockquote>
+
+<p>As suggested <a href="https://twitter.com/clcpolevaulter/status/529822434287841280">in this tweet</a> with respect to <a href="/blog/2014/10/27/tale-of-two-submit-buttons/">my previous post</a>, if we listen to the <code class="highlighter-rouge">form submit event</code> and perform our desired action,
+the <code class="highlighter-rouge">submit button name/value</code> would be passed to the <code class="highlighter-rouge">action</code> handler.</p>
+
+<blockquote>
+  <p>Wait a second, I have to fire beacons with respect to the <code class="highlighter-rouge">submit button clicked</code>. How do I know which button was clicked?</p>
+</blockquote>
+
+<p>We can use <code class="highlighter-rouge">document.activeElement</code>.</p>
+
+<p><code class="highlighter-rouge">document.activeElement</code> returns the element which currently has the <code class="highlighter-rouge">focus</code>. While clicking the <code class="highlighter-rouge">submit button</code> we are also focusing it<sup>*</sup>.</p>
+
+<p>But the form could be submitted by pressing the <code class="highlighter-rouge">enter</code> in the physical keyboard or the <code class="highlighter-rouge">Go</code> button in the soft keyboard. Then?</p>
+
+<p>If the <code class="highlighter-rouge">form</code> have been submitted by pressing/tapping the <code class="highlighter-rouge">enter/Go</code>, i.e. <code class="highlighter-rouge">document.activeElement.type !== 'submit'</code>, we could asssume the <code class="highlighter-rouge">button clicked</code>, to be the <code class="highlighter-rouge">first submit button</code>.
+or else the <code class="highlighter-rouge">button</code> that was clicked.</p>
+
+<p>Refer the below example.</p>
+
+<p data-height="280" data-theme-id="0" data-slug-hash="fkjGH" data-default-tab="result" data-user="sarbbottam" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/fkjGH/">greet-on-submit</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<p><strong>Try the above example in a new tab/window in Chrome only.</strong>
+Hold on to your breath, prior trying it out in different browsers.
+I hear you about the browser compatibility. We will address it, please follow along.</p>
+
+<p>Navigate to <strong>devtools console</strong>.
+You can see the <code class="highlighter-rouge">activeElemen</code>t is being logged and if the type is <code class="highlighter-rouge">submit</code> its <code class="highlighter-rouge">value</code> will also be logged.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">submitForm</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+  <span class="c1">// which submit button is clicked</span>
+  <span class="kd">var</span> <span class="nx">activeElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">activeElement</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">activeElement</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">activeElement</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">'submit'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">activeElement</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// some action, firing beacon with the value of the submit button</span>
+  <span class="nx">greetingForm</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>So far, so good. Let’s try it in iOS safari. Irrespective of the button clicked, <code class="highlighter-rouge">document.activeElement</code> always returns the <code class="highlighter-rouge">body</code> element.</p>
+
+<blockquote>
+  <p>What’s going on?</p>
+</blockquote>
+
+<p>As stated earlier <code class="highlighter-rouge">document.activeElement</code> returns the element, which currently has the focus.
+And in <strong>iOS Safari</strong> <code class="highlighter-rouge">button</code> never gets the focus, neither in <strong>Chrome for iOS</strong>. <strong>FireFox/Mac</strong> and <strong>Safari/Mac</strong> follow the same pattern.</p>
+
+<p><sup>*</sup>Please refer the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus">clicking and focus matrix</a> for further details.</p>
+
+<p><strong>So technically we cant use this solution, for multiple submit buttons.</strong></p>
+
+<h3 id="cross-browser-solution">Cross browser solution</h3>
+
+<p>In my <a href="/blog/2014/10/27/tale-of-two-submit-buttons/#(previously)-proposed-solution-(not-optimal)">earlier proposed solution</a>  I used a <code class="highlighter-rouge">hidden field</code>.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">id=</span><span class="s">"proxy-submit-button"</span><span class="nt">&gt;</span></code></pre></figure>
+
+<p>Listen to the <code class="highlighter-rouge">click event</code> of each <code class="highlighter-rouge">submit buttons</code> <em>instead of the</em> <code class="highlighter-rouge">form submit event</code>.
+In the event listener’s callback</p>
+
+<ul>
+  <li>populate the value of the hidden field<code class="highlighter-rouge"> with the value of the </code>clicked button`</li>
+  <li><code class="highlighter-rouge">name</code> the hidden field as the name of the <code class="highlighter-rouge">submit button clicked</code>.</li>
+  <li>submit the form via <code class="highlighter-rouge">form.submit()</code></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">holaButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'hola-button'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">bonjourButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'bonjour-button'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">proxySubmitButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'proxy-submit-button'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">greetingForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'greeting-form'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">submitForm</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+  <span class="cm">/* set the proxy button value */</span>
+  <span class="nx">proxySubmitButton</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+  <span class="cm">/* set the proxy button name */</span>
+  <span class="nx">proxySubmitButton</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="nx">greetingForm</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">holaButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">submitForm</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">bonjourButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">submitForm</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span></code></pre></figure>
+
+<p>Please refer the below example.</p>
+
+<p data-height="280" data-theme-id="0" data-slug-hash="Biqzu" data-default-tab="result" data-user="sarbbottam" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/Biqzu/">greeting-js-proper</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<p>If for any reason JavaScript is not executed, the <code class="highlighter-rouge">proxy-submit-button name/value</code>will not be passed to the form <code class="highlighter-rouge">action</code> handler, as it does not have any <code class="highlighter-rouge">name</code>.
+But the <code class="highlighter-rouge">name/value</code> of the <code class="highlighter-rouge">submit button clicked</code> will be passed to the form <code class="highlighter-rouge">action</code> handler.</p>
+
+<p>If JavaScript is functional, then <code class="highlighter-rouge">proxy-submit-button</code>’s <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">value</code> will be updated, with respect to the <code class="highlighter-rouge">submit button</code> clicked, prior submitting the <code class="highlighter-rouge">form</code>.
+And thus it would be part of the <code class="highlighter-rouge">serialized form data</code> and the <code class="highlighter-rouge">submit button</code> clicked will not be part of the <code class="highlighter-rouge">serialized form data</code>.</p>
+
+<p><em>Pressing/tapping the <code class="highlighter-rouge">enter/Go</code>, triggers <code class="highlighter-rouge">click event</code> on the <code class="highlighter-rouge">first submit button</code> (the submit button that appears first in the DOM).</em></p>
+
+<p><strong>Note:</strong>
+If you are not carrying out any <code class="highlighter-rouge">button specific actions</code> but <code class="highlighter-rouge">generalized actions</code> you can listen to <code class="highlighter-rouge">form submit</code> instead of listening to individual <code class="highlighter-rouge">button click</code>.</p>
+
+<p>An example of generalized action would be to <strong>disable the submit buttons on form submit, in order to prevent multiple form submission</strong>.</p>
+
+<p>Please refer the below example for disabling the submit buttons and preventing multiple form submits.</p>
+
+<p data-height="280" data-theme-id="0" data-slug-hash="oXrmjv" data-default-tab="result" data-user="sarbbottam" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/oXrmjv/">greet-on-submit-disable</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<p>Something does not look right, the <code class="highlighter-rouge">submit button name/value</code> is not getting passed to the form action handler in the above example. Strange!!</p>
+
+<blockquote>
+  <p>What have we done other than disabling the submit buttons?</p>
+</blockquote>
+
+<p>That exactly what we have done. We have <code class="highlighter-rouge">disabled</code> the <code class="highlighter-rouge">submit buttons</code>. Any disabled <code class="highlighter-rouge">form fields name/value</code> will not be passed to the form action handler.</p>
+
+<blockquote>
+  <p>How do we disable the submit button then?</p>
+</blockquote>
+
+<p>Event loop to the rescue. We have to carry out disabling the submit button in a <code class="highlighter-rouge">setTimeout</code> callback, even a <code class="highlighter-rouge">0ms</code> would do good. <code class="highlighter-rouge">setTimeout</code> with <code class="highlighter-rouge">0ms</code> will push the <code class="highlighter-rouge">callback</code> to the end of the job queue and it will only be executed once the previous jobs have been out of the queue, i.e. the <code class="highlighter-rouge">form</code> has been <code class="highlighter-rouge">submitted</code>.</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="waLNGe" data-default-tab="result" data-user="sarbbottam" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/waLNGe/">greet-on-submit-disable-ok</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+<blockquote>
+  <p>What if I want to perform specific actions with respect to the buttons clicked along with generalized actions on form submit?</p>
+</blockquote>
+
+<p>You better listen to <code class="highlighter-rouge">button click event</code> instead of the <code class="highlighter-rouge">form submit event</code>.</p>
+
+<blockquote>
+  <p>How about form validations?</p>
+</blockquote>
+
+<p>Listen to the <code class="highlighter-rouge">form submit event</code> and carry out the validation followed by <code class="highlighter-rouge">form submit</code> on <strong>successful validation</strong>.</p>
+
+<blockquote>
+  <p>But if there are multiple submit buttons?</p>
+</blockquote>
+
+<p>You need to ask yourself, if you really need <code class="highlighter-rouge">multiple submit buttons</code> on a form <em>with</em> <code class="highlighter-rouge">input fields</code>.
+Most likely you don’t, if there are <code class="highlighter-rouge">multiple input fields</code>.
+As stated earlier, it might lead to a confusing user experience.</p>
+
+<p>But if you really need it, you might have to listen to <code class="highlighter-rouge">button click event</code>.</p>
+
+<hr />
+
+<p>This has been my expereinece and comprehension so far; it would be great to know if there are other aspects.
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script></p>
+
+  <hr/>
+  If you have enjoyed reading this post you can follow me on twitter <a href="https://twitter.com/sarbbottam">@sarbbottam</a> and learn about any new posts.
+  <em>Opinions expressed are solely my own and do not express the views or opinions of my employer.</em>
+  </article>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js"></script>
+<script>
+  anchors.options = {
+    icon: '#',
+    placement: 'left'
+  };
+  anchors.add();
+</script>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES * * */
+      var disqus_shortname = 'sarbbottam';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+
+      </div>
+    </div>
+    <footer class="site-footer">
+
+  <div class="wrap flex-wrap">
+    <div>
+      <a href="https://github.com/sarbbottam">
+        <span class="icon github">
+          <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+            c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+            c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+            c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+            C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+            c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+            c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+            c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+            c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+          </svg>
+        </span>
+        <span class="username">sarbbottam</span>
+      </a>
+    </div>
+    <div>
+      <a href="https://twitter.com/sarbbottam">
+        <span class="icon twitter">
+          <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+            <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+            c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+            c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+            c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+            C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+            c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+            c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+          </svg>
+        </span>
+        <span class="username">sarbbottam</span>
+      </a>
+    </div>
+    <div>
+      subscribe <a href="/feed.xml">via RSS</a>
+    </div>
+  </div>
+
+</footer>
+
+
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86047817-1', 'auto');
+  ga('send', 'pageview', location.pathname);
+
+</script>
+
+    
+
+    </body>
+</html>

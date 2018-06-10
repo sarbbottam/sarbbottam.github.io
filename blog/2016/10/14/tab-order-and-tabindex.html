@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+      
+      Sarbbottam’s weblog - tab order and tabindex 
+    </title>
+    <!-- Begin Jekyll SEO tag v2.0.0 -->
+<meta property="og:title" content="tab order and tabindex" />
+<meta name="description" content="A keyboard only user, primarily uses tab key to reach the actionable controls in a web page. The order in which focusable elements are focused via tab press, is called tab order. When a user presses tab, browser focuses the next tabable element in the tab order." />
+<meta property="og:description" content="A keyboard only user, primarily uses tab key to reach the actionable controls in a web page. The order in which focusable elements are focused via tab press, is called tab order. When a user presses tab, browser focuses the next tabable element in the tab order." />
+<link rel="canonical" href="https://sarbbottam.github.io/blog/2016/10/14/tab-order-and-tabindex" />
+<meta property="og:url" content="https://sarbbottam.github.io/blog/2016/10/14/tab-order-and-tabindex" />
+<meta property="og:site_name" content="Sarbbottam’s weblog" />
+<meta property="og:image" content="https://sarbbottam.github.io/images/sarbbottam.jpeg" />
+<meta property="og:image:height" content="100" />
+<meta property="og:image:width" content="100" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-10-14T13:10:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@sarbbottam" />
+<meta name="twitter:creator" content="@sarbbottam" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "tab order and tabindex",
+"image": "https://sarbbottam.github.io/images/sarbbottam.jpeg",
+"datePublished": "2016-10-14T13:10:00+00:00",
+"description": "A keyboard only user, primarily uses tab key to reach the actionable controls in a web page. The order in which focusable elements are focused via tab press, is called tab order. When a user presses tab, browser focuses the next tabable element in the tab order.",
+"url": "https://sarbbottam.github.io/blog/2016/10/14/tab-order-and-tabindex"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/">Sarbbottam’s weblog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a href="/">Blog</a>
+        
+          <a href="/project">Project</a>
+        
+          <a href="/design">Design</a>
+        
+          <a href="/about">About</a>
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+      
+      <h1>tab order and tabindex</h1>
+      <div class="post">
+
+  <p class="post-meta">
+    Oct 14, 2016
+     -
+    
+    
+      6 mins read
+    
+  </p>
+
+  <article class="post-content">
+  <p>A keyboard only user, primarily uses <code class="highlighter-rouge">tab</code> key to reach the actionable controls in a web page.
+The order in which <code class="highlighter-rouge">focusable</code> elements are focused via <code class="highlighter-rouge">tab</code> press, is called <code class="highlighter-rouge">tab order</code>.
+When a user presses <code class="highlighter-rouge">tab</code>, browser focuses the next <code class="highlighter-rouge">tabable</code> element in the <code class="highlighter-rouge">tab order</code>.</p>
+
+<!--more-->
+
+<p>All <code class="highlighter-rouge">tabable</code> elements are <code class="highlighter-rouge">focusable</code> but not all <code class="highlighter-rouge">focusable</code> elements are <code class="highlighter-rouge">tabable</code>.</p>
+
+<p><em>tabable</em> - an element that can be reached via <code class="highlighter-rouge">tab</code> press.</p>
+
+<p><em>focusable</em> - an element that can be focused by any means, by <code class="highlighter-rouge">tab</code> press, <code class="highlighter-rouge">up/down/left/right</code> press, mouse click or via JavaScript using <code class="highlighter-rouge">HTMLElement.focus()</code>.</p>
+
+<p>Refer <a href="http://codepen.io/sarbbottam/full/vXpaPO/">CodePen example - tab order - 101</a> to experience <code class="highlighter-rouge">tab order</code>.</p>
+
+<p data-height="380" data-theme-id="0" data-slug-hash="vXpaPO" data-default-tab="result" data-user="sarbbottam" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/vXpaPO/">tab order  - 101</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>In the <a href="http://codepen.io/sarbbottam/full/vXpaPO/">CodePen example - tab order - 101</a> the <code class="highlighter-rouge">tab order</code> is <code class="highlighter-rouge">1, 2, 3, 4, 5</code>.</p>
+
+<p><code class="highlighter-rouge">tab order</code> matches the order in which the <code class="highlighter-rouge">focusable</code> elements appear, if the DOM is traversed in <a href="https://www.w3.org/TR/dom/#concept-tree-order">preorder, depth-first traversal</a>.
+<br />
+In other words, <code class="highlighter-rouge">tab order</code> matches the order, in which <code class="highlighter-rouge">focusable</code> elements appear in the HTML from start to finish.</p>
+
+<p><em>Ideally <code class="highlighter-rouge">tab order</code> must match the <code class="highlighter-rouge">natural visual order</code>. Otherwise it might lead to a confusing user experience.</em></p>
+
+<p>Refer <a href="http://codepen.io/sarbbottam/full/amEjaP/">CodePen example - tab order - confusing</a> where <code class="highlighter-rouge">natural visual order</code> does not match the <code class="highlighter-rouge">tab order</code></p>
+
+<p data-height="440" data-theme-id="0" data-slug-hash="amEjaP" data-default-tab="result" data-user="sarbbottam" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/amEjaP/">tab order  - confusing</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>Visually the <code class="highlighter-rouge">tab order</code> seems 1, 2, 3, 4, 5. In reality, it is 5, 4, 3, 2, 1, to the match the DOM. Refer the HTML section of the <a href="http://codepen.io/sarbbottam/pen/amEjaP">CodePen example - tab order - confusing</a>.</p>
+
+<p><strong>Don’t do this.</strong></p>
+
+<p>If you were unfamiliar with the concept of <code class="highlighter-rouge">tab order</code>, I hope you got the hang of it, by now.
+If not try accessing the above two examples using <code class="highlighter-rouge">tab</code> and poke around the corresponding code.</p>
+
+<h2 id="what-are-the-focusable-elements">What are the <code class="highlighter-rouge">focusable</code> elements?</h2>
+
+<p>Any intractable HTML element, which does not have a <code class="highlighter-rouge">disabled</code> attribute is <code class="highlighter-rouge">focusable</code>.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">input:not([type=hidden])</code></li>
+  <li><code class="highlighter-rouge">select</code></li>
+  <li><code class="highlighter-rouge">textarea</code></li>
+  <li><code class="highlighter-rouge">button</code></li>
+  <li><code class="highlighter-rouge">a[href]</code></li>
+</ul>
+
+<p>⚠︎︎ However, if an intractable element or its ancestor has <code class="highlighter-rouge">display:none</code> or <code class="highlighter-rouge">visibility:hidden</code>, it is not <code class="highlighter-rouge">focusable</code>.</p>
+
+<p>💡 If a non-intractable elements can be made intractable, it will be focusable too.
+For example, <code class="highlighter-rouge">div</code>, a non-intractable element, can be made intractable by adding <code class="highlighter-rouge">contenteditable="true"</code> to it, thus making it <code class="highlighter-rouge">focusable</code>.</p>
+
+<p>👊 Using <code class="highlighter-rouge">tabindex</code> attribute, one can make a non-intractable elements <code class="highlighter-rouge">focusable</code>.</p>
+
+<h2 id="tabindex">tabindex</h2>
+
+<p>As the name suggests, <code class="highlighter-rouge">tabindex</code> re-indexes the <code class="highlighter-rouge">tab order</code> or in other words modifies the <code class="highlighter-rouge">tab order</code>.
+Using <code class="highlighter-rouge">tabindex</code> one can</p>
+
+<ul>
+  <li>take elements out of the <code class="highlighter-rouge">tab order</code></li>
+  <li>insert elements in the natural <code class="highlighter-rouge">tab order</code></li>
+  <li>modify the order of elements in the <code class="highlighter-rouge">tab order</code>.</li>
+</ul>
+
+<p><code class="highlighter-rouge">tabindex</code> attribute can have any of the following three values</p>
+
+<ul>
+  <li><code class="highlighter-rouge">-1</code></li>
+  <li><code class="highlighter-rouge">0</code></li>
+  <li><code class="highlighter-rouge"><span class="p">{</span><span class="err">1,</span><span class="w"> </span><span class="err">2,</span><span class="w"> </span><span class="err">3,</span><span class="w"> </span><span class="err">4,</span><span class="w"> </span><span class="err">5,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span></code>; <a href="https://www.mathsisfun.com/whole-numbers.html">any whole number</a></li>
+</ul>
+
+<h3 id="tabindex-1">tabindex=-1</h3>
+
+<p><code class="highlighter-rouge">tabindex=-1</code> takes the corresponding <code class="highlighter-rouge">focusable</code> element out of the <code class="highlighter-rouge">tab order</code>.</p>
+
+<p>An element with <code class="highlighter-rouge">tabindex=-1</code> attribute can never be reached via <code class="highlighter-rouge">tab</code> press, but it can be focused via JavaScript using <code class="highlighter-rouge">HTMLElement.focus()</code>.</p>
+
+<p><em>So not all <code class="highlighter-rouge">focusable</code> elements are <code class="highlighter-rouge">tabable</code>.</em></p>
+
+<p>Refer <a href="http://codepen.io/sarbbottam/full/WGrRVO/">CodePen example - tabindex=-1</a></p>
+
+<p data-height="650" data-theme-id="0" data-slug-hash="WGrRVO" data-default-tab="result" data-user="sarbbottam" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/WGrRVO/">tabindex=-1</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p><code class="highlighter-rouge">tabindex=-1</code> could be very useful to enhance the user experience for Rich Internet Applications.</p>
+
+<p>Whenever there is a UI, where there are bunch of intractable elements, serving similar purpose,
+it is better to take them out of the <code class="highlighter-rouge">tab order</code>, and focus them programmatically. Similar to the behavior of radio group.</p>
+
+<p>There are many use cases, where <code class="highlighter-rouge">tabindex=-1</code> could be useful.</p>
+
+<p><strong>In short when ever you want any element to be focused only via JavaScript and not via <code class="highlighter-rouge">tab</code> press, use <code class="highlighter-rouge">tabindex=-1</code> attribute.</strong></p>
+
+<h3 id="tabindex0">tabindex=0</h3>
+
+<p><code class="highlighter-rouge">tabindex=0</code> makes an non-intractable element <code class="highlighter-rouge">focusable</code> and inserts it in the natural <code class="highlighter-rouge">tab order</code>, that is the order in which it appears in the DOM.</p>
+
+<p>Refer <a href="http://codepen.io/sarbbottam/full/YGZkmV/">CodePen example - tabindex=0</a></p>
+
+<p data-height="450" data-theme-id="0" data-slug-hash="YGZkmV" data-default-tab="result" data-user="sarbbottam" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/YGZkmV/">tabindex=0</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p><em>I had been considering <code class="highlighter-rouge">tabindex=0</code> a great utility, until recently.</em></p>
+
+<p>Let’s consider that there is <em>clickable</em> <code class="highlighter-rouge">div</code>. And we want this <code class="highlighter-rouge">div</code> to be operable via keyboard.</p>
+
+<ul>
+  <li>First we have to add<code class="highlighter-rouge">tabindex=0</code> to make it <code class="highlighter-rouge">focusable</code>, so that it can be reached via <code class="highlighter-rouge">tab</code> press.</li>
+  <li>Then we have to listen to <code class="highlighter-rouge">enter/space</code> press on the <code class="highlighter-rouge">div</code> and execute the <code class="highlighter-rouge">click</code> handler.</li>
+</ul>
+
+<p>However, if a <code class="highlighter-rouge">button</code> was used, not only it would have been <code class="highlighter-rouge">focusable</code> by default,
+but browser would have triggered a <code class="highlighter-rouge">click</code> event on <code class="highlighter-rouge">enter/space</code> press.</p>
+
+<p>Why to write so much extra code? <a href="https://www.google.com/#q=less+is+more">Less is more</a></p>
+
+<p>Please refer the <a href="http://codepen.io/sarbbottam/full/vXdxPm/">CodePen example - why tabindex=0</a></p>
+
+<p data-height="500" data-theme-id="0" data-slug-hash="vXdxPm" data-default-tab="result" data-user="sarbbottam" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/vXdxPm/">Why tabindex=0?</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="tabindexx">tabindex=X</h3>
+
+<p>Where <code class="highlighter-rouge">X</code> is <code class="highlighter-rouge"><span class="p">{</span><span class="err">1,</span><span class="w"> </span><span class="err">2,</span><span class="w"> </span><span class="err">3,</span><span class="w"> </span><span class="err">4,</span><span class="w"> </span><span class="err">5,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span></code> etc.; i.e. a <a href="https://www.mathsisfun.com/whole-numbers.html">whole number</a>.</p>
+
+<p>It modifies the natural <code class="highlighter-rouge">tab order</code>.</p>
+
+<p><strong>Don’t use it</strong></p>
+
+<p>Seriously, don’t use it, as it modifies (rather screws up) the natural <code class="highlighter-rouge">tab order</code> it will challenge the user expectation.</p>
+
+<p>Please refer the <a href="http://codepen.io/sarbbottam/full/ozrrjx/">CodePen example - why tabindex=X</a></p>
+
+<p data-height="350" data-theme-id="0" data-slug-hash="ozrrjx" data-default-tab="result" data-user="sarbbottam" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sarbbottam/pen/ozrrjx/">tabindex=X</a> by Sarbbottam Bandyopadhyay (<a href="http://codepen.io/sarbbottam">@sarbbottam</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>Visually the <code class="highlighter-rouge">tab order</code> seems 1, 2, 3, 4, 5. In reality, it is 5, 1, 4, 2, 3, due to the <code class="highlighter-rouge">tabindex=X</code>. Refer the HTML section of the <a href="http://codepen.io/sarbbottam/pen/ozrrjx/">CodePen example - why tabindex=X</a>.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Don’t alter the natural visual <code class="highlighter-rouge">tab order</code></p>
+
+<p>You might also want to take a look at <a href="/blog/2016/10/16/tab-order-and-tab-navigation-simulation">tab order and tab navigation simulation</a> post.</p>
+
+  <hr/>
+  If you have enjoyed reading this post you can follow me on twitter <a href="https://twitter.com/sarbbottam">@sarbbottam</a> and learn about any new posts.
+  <em>Opinions expressed are solely my own and do not express the views or opinions of my employer.</em>
+  </article>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js"></script>
+<script>
+  anchors.options = {
+    icon: '#',
+    placement: 'left'
+  };
+  anchors.add();
+</script>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES * * */
+      var disqus_shortname = 'sarbbottam';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+
+      </div>
+    </div>
+    <footer class="site-footer">
+
+  <div class="wrap flex-wrap">
+    <div>
+      <a href="https://github.com/sarbbottam">
+        <span class="icon github">
+          <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+            c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+            c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+            c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+            C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+            c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+            c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+            c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+            c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+          </svg>
+        </span>
+        <span class="username">sarbbottam</span>
+      </a>
+    </div>
+    <div>
+      <a href="https://twitter.com/sarbbottam">
+        <span class="icon twitter">
+          <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+            <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+            c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+            c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+            c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+            C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+            c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+            c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+          </svg>
+        </span>
+        <span class="username">sarbbottam</span>
+      </a>
+    </div>
+    <div>
+      subscribe <a href="/feed.xml">via RSS</a>
+    </div>
+  </div>
+
+</footer>
+
+
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86047817-1', 'auto');
+  ga('send', 'pageview', location.pathname);
+
+</script>
+
+    
+
+    </body>
+</html>
